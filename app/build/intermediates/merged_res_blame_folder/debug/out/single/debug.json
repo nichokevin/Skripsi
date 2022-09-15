@@ -8,10 +8,6 @@
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-23:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.skripsi.app-merged_res-21:/layout_action_bar_layout.xml.flat",
-        "source": "com.example.skripsi.app-main-23:/layout/action_bar_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-21:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-23:\\mipmap-xhdpi\\ic_launcher.webp"
     },

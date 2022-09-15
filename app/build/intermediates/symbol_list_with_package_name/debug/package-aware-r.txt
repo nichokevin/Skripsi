@@ -1748,6 +1748,9 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id Gpose1
+id Gpose2
+id Gpose3
 id META
 id NO_DEBUG
 id SHIFT
@@ -2038,6 +2041,9 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id pose1
+id pose2
+id pose3
 id position
 id postLayout
 id progress_circular
@@ -2368,6 +2374,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string cobra
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -2435,9 +2442,10 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string plank
 string search_menu_title
-string skripsi
 string status_bar_notification_info_overflow
+string tree
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
