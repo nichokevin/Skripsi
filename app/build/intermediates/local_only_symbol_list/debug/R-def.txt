@@ -7,6 +7,7 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable cobra
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 id Gpose1
@@ -20,6 +21,8 @@ id pose2
 id pose3
 id titleApp
 layout action_bar_layout
+layout activity_detail
+layout activity_deteksi
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round

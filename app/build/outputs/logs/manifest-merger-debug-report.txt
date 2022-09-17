@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
 MERGED from [androidx.core:core-ktx:1.7.0] C:\Users\nicho\.gradle\caches\transforms-3\df7740520afee153f97fa22e7a845f13\transformed\core-ktx-1.7.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\nicho\.gradle\caches\transforms-3\7baf4b3010b0c69b4075dac2330b7a9d\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\nicho\.gradle\caches\transforms-3\6b86088a49c79524b61b264c6914d59e\transformed\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
@@ -40,27 +40,27 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\nicho\.gradle\ca
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\nicho\.gradle\caches\transforms-3\9e317407a6cf4c48efbc9c8b280c6581\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\nicho\.gradle\caches\transforms-3\7341f734db0e321b6e690cf15510a7ca\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\nicho\.gradle\caches\transforms-3\857e03149483f701a2d3531919e69de5\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
 	package
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:4:5-34
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-33:12
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:6:5-25:19
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:6:5-31:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\nicho\.gradle\caches\transforms-3\7baf4b3010b0c69b4075dac2330b7a9d\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\nicho\.gradle\caches\transforms-3\7baf4b3010b0c69b4075dac2330b7a9d\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\nicho\.gradle\caches\transforms-3\6b86088a49c79524b61b264c6914d59e\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -89,22 +89,34 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ni
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:14:9-45
 	android:dataExtractionRules
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:8:9-65
-activity#com.example.skripsi.MainActivity
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:16:9-24:20
+activity#com.example.skripsi.deteksi
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:16:9-18:40
 	android:exported
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:18:13-36
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:17:13-41
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:17:13-36
+activity#com.example.skripsi.detail
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:19:9-21:40
+	android:exported
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:21:13-37
+	android:name
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:20:13-35
+activity#com.example.skripsi.MainActivity
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:22:9-30:20
+	android:exported
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:24:13-36
+	android:name
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:23:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:25:13-29:29
 action#android.intent.action.MAIN
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:28:27-74
 uses-sdk
 INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml

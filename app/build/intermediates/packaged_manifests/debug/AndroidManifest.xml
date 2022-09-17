@@ -22,6 +22,12 @@
         android:testOnly="true"
         android:theme="@style/Theme.Skripsi" >
         <activity
+            android:name="com.example.skripsi.deteksi"
+            android:exported="false" />
+        <activity
+            android:name="com.example.skripsi.detail"
+            android:exported="false" />
+        <activity
             android:name="com.example.skripsi.MainActivity"
             android:exported="true" >
             <intent-filter>
