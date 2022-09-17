@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -12,8 +13,9 @@
         android:layout_height="220dp"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:clickable="true"
         app:cardBackgroundColor="#BDBCBC"
         app:cardCornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,14 +24,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/Gpose1"
-                android:layout_width="match_parent"
-                android:layout_height="195dp"
-                android:src="@drawable/cobra" />
+                android:layout_width="360dp"
+                android:layout_height="179dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/plank" />
 
             <TextView
                 android:id="@+id/pose1"
@@ -44,12 +47,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view2"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:clickable="true"
         app:cardBackgroundColor="#BDBCBC"
         app:cardCornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,14 +62,15 @@
         app:layout_constraintTop_toBottomOf="@+id/card_view">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/Gpose2"
                 android:layout_width="match_parent"
-                android:layout_height="195dp"
-                android:src="@drawable/cobra" />
+                android:layout_height="190dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/tree" />
 
             <TextView
                 android:id="@+id/pose2"
@@ -80,12 +85,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view3"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:clickable="true"
         app:cardBackgroundColor="#BDBCBC"
         app:cardCornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,22 +100,23 @@
         app:layout_constraintTop_toBottomOf="@+id/card_view2">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/Gpose3"
                 android:layout_width="wrap_content"
                 android:layout_height="195dp"
+                android:layout_centerInParent="true"
                 android:src="@drawable/cobra" />
 
             <TextView
                 android:id="@+id/pose3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cobra"
+                android:layout_below="@+id/Gpose3"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/Gpose3"/>
+                android:text="@string/cobra" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -10,6 +10,8 @@ color white
 drawable cobra
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable plank
+drawable tree
 id Gpose1
 id Gpose2
 id Gpose3
