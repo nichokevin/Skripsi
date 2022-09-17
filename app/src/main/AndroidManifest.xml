@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
         <activity
+            android:name=".deteksi"
+            android:exported="false" />
+        <activity
+            android:name=".detail"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
