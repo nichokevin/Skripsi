@@ -25,16 +25,24 @@ class MainActivity : AppCompatActivity() {
         val card3 = findViewById<CardView>(R.id.card_view3)
 
         val NamaPose = textPose.text
-        val NamaPose2 = textPose.text
-        val NamaPose3 = textPose.text
+        val NamaPose2 = textPose2.text
+        val NamaPose3 = textPose3.text
 
         card.setOnClickListener {
             val i = Intent(this@MainActivity, detail::class.java)
-            i.putExtra("KEY_NAME",NamaPose )
+            i.putExtra("KEY_NAME",NamaPose)
             startActivity(i)
         }
-        if (card.isClickable) {
-
+        card2.setOnClickListener{
+            val i = Intent(this@MainActivity, detail::class.java)
+            i.putExtra("KEY_NAME",NamaPose2)
+            startActivity(i)
         }
+        card3.setOnClickListener{
+            val i = Intent(this@MainActivity, detail::class.java)
+            i.putExtra("KEY_NAME",NamaPose3)
+            startActivity(i)
+        }
+
     }
 }

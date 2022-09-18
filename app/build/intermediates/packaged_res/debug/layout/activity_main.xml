@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbarAlwaysDrawVerticalTrack="true"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="0dp"
-        android:layout_height="220dp"
+        android:layout_height="230dp"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:clickable="true"
         app:cardBackgroundColor="#BDBCBC"
         app:cardCornerRadius="4dp"
@@ -32,7 +34,8 @@
                 android:layout_width="360dp"
                 android:layout_height="179dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/plank" />
+                android:src="@drawable/plank"
+                android:contentDescription="@string/plank" />
 
             <TextView
                 android:id="@+id/pose1"
@@ -50,9 +53,9 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:clickable="true"
         app:cardBackgroundColor="#BDBCBC"
         app:cardCornerRadius="4dp"
@@ -70,7 +73,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/tree" />
+                android:src="@drawable/tree"
+                android:contentDescription="@string/tree" />
 
             <TextView
                 android:id="@+id/pose2"
@@ -88,9 +92,9 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:clickable="true"
         app:cardBackgroundColor="#BDBCBC"
         app:cardCornerRadius="4dp"
@@ -105,10 +109,11 @@
 
             <ImageView
                 android:id="@+id/Gpose3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="195dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/cobra" />
+                android:src="@drawable/cobra"
+                android:contentDescription="@string/cobra" />
 
             <TextView
                 android:id="@+id/pose3"
@@ -120,5 +125,5 @@
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
