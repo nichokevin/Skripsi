@@ -2,7 +2,6 @@ package com.example.skripsi
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -28,18 +27,37 @@ class MainActivity : AppCompatActivity() {
         val NamaPose2 = textPose2.text
         val NamaPose3 = textPose3.text
 
-        card.setOnClickListener {
+        card.setOnLongClickListener {
             val i = Intent(this@MainActivity, detail::class.java)
+            i.putExtra("KEY_NAME",NamaPose)
+            startActivity(i)
+            true
+        }
+        card2.setOnLongClickListener {
+            val i = Intent(this@MainActivity, detail::class.java)
+            i.putExtra("KEY_NAME",NamaPose2)
+            startActivity(i)
+            true
+        }
+        card3.setOnLongClickListener {
+            val i = Intent(this@MainActivity, detail::class.java)
+            i.putExtra("KEY_NAME",NamaPose3)
+            startActivity(i)
+            true
+        }
+
+        card.setOnClickListener {
+            val i = Intent(this@MainActivity, deteksi::class.java)
             i.putExtra("KEY_NAME",NamaPose)
             startActivity(i)
         }
         card2.setOnClickListener{
-            val i = Intent(this@MainActivity, detail::class.java)
+            val i = Intent(this@MainActivity, deteksi::class.java)
             i.putExtra("KEY_NAME",NamaPose2)
             startActivity(i)
         }
         card3.setOnClickListener{
-            val i = Intent(this@MainActivity, detail::class.java)
+            val i = Intent(this@MainActivity, deteksi::class.java)
             i.putExtra("KEY_NAME",NamaPose3)
             startActivity(i)
         }

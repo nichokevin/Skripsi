@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".deteksi">
-    
+
 
     <LinearLayout
         android:id="@+id/control"
@@ -22,8 +22,7 @@
             android:layout_gravity="center_vertical"
             android:background="@layout/toggle_style"
             android:checked="false"
-            android:textOff=""
-            android:textOn=""/>
+            android:clickable="true" />
 
         <Spinner
             android:id="@+id/spinner"
