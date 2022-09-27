@@ -2,7 +2,6 @@ package com.example.skripsi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.ToggleButton
 
 class deteksi : AppCompatActivity() {
