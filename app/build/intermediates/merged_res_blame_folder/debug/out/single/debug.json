@@ -1,106 +1,102 @@
 [
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-pngs-22:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\layout_action_bar_layout.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\layout\\action_bar_layout.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/drawable_camera.png.flat",
+        "source": "com.example.skripsi.app-main-29:/drawable/camera.png"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable-v24_plank.jpg.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable-v24\\plank.jpg"
+        "merged": "com.example.skripsi.app-merged_res-27:/layout_action_bar_layout.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/layout/action_bar_layout.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\layout_activity_detail.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\layout\\activity_detail.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/drawable-v24_tree.jpg.flat",
+        "source": "com.example.skripsi.app-main-29:/drawable-v24/tree.jpg"
     },
     {
         "merged": "com.example.skripsi.app-merged_res-27:/layout_activity_deteksi.xml.flat",
         "source": "com.example.skripsi.app-main-29:/layout/activity_deteksi.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable-v24_cobra.jpg.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable-v24\\cobra.jpg"
+        "merged": "com.example.skripsi.app-merged_res-27:/layout_activity_main.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\xml\\backup_rules.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\layout_activity_deteksi.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\layout\\activity_deteksi.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.skripsi.app-pngs-22:/drawable-anydpi-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/xml_backup_rules.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/drawable-v24_plank.jpg.flat",
+        "source": "com.example.skripsi.app-main-29:/drawable-v24/plank.jpg"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\layout\\activity_main.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/layout_activity_detail.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/layout/activity_detail.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/layout_toggle_style.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/layout/toggle_style.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\layout_toggle_style.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\layout\\toggle_style.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/drawable-v24_cobra.jpg.flat",
+        "source": "com.example.skripsi.app-main-29:/drawable-v24/cobra.jpg"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable-v24_tree.jpg.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable-v24\\tree.jpg"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable_camera.png.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable\\camera.png"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\xml\\data_extraction_rules.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.example.skripsi.app-merged_res-27:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.skripsi.app-main-29:/mipmap-xxhdpi/ic_launcher.webp"
     }
 ]

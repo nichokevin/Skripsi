@@ -2,17 +2,24 @@ package com.example.skripsi
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.example.skripsi.databaseLokal.DBHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val db = DBHelper(this, null)
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
         supportActionBar?.setCustomView(R.layout.action_bar_layout);
 
@@ -23,23 +30,53 @@ class MainActivity : AppCompatActivity() {
         val card2 = findViewById<CardView>(R.id.card_view2)
         val card3 = findViewById<CardView>(R.id.card_view3)
 
-        val NamaPose = textPose.text
-        val NamaPose2 = textPose2.text
-        val NamaPose3 = textPose3.text
+        val NamaPose = textPose.text.toString()
+        val NamaPose2 = textPose2.text.toString()
+        val NamaPose3 = textPose3.text.toString()
 
+        db.getAll()
         card.setOnLongClickListener {
-            val i = Intent(this@MainActivity, detail::class.java)
-            i.putExtra("KEY_NAME",NamaPose)
-            startActivity(i)
+            val name = NamaPose
+            val des =  "Pose benefits\n"
+            val temp = db.getByName(name)
+            if (temp != null) {
+                if(temp.moveToFirst()) {
+                    db.replace(name,des)
+                    val i = Intent(this@MainActivity, detail::class.java)
+                    i.putExtra("KEY_NAME",NamaPose)
+                    startActivity(i)
+                }else {
+                    db.addName(name, des)
+                    val i = Intent(this@MainActivity, detail::class.java)
+                    i.putExtra("KEY_NAME",NamaPose)
+                    startActivity(i)
+                }
+            }
             true
         }
         card2.setOnLongClickListener {
-            val i = Intent(this@MainActivity, detail::class.java)
-            i.putExtra("KEY_NAME",NamaPose2)
-            startActivity(i)
+            val name = NamaPose2
+            val des =  "Pose benefits\n"
+            val temp = db.getByName(name)
+            if (temp != null) {
+                if(temp.moveToFirst()) {
+                    db.replace(name,des)
+                    val i = Intent(this@MainActivity, detail::class.java)
+                    i.putExtra("KEY_NAME",NamaPose2)
+                    startActivity(i)
+                }else {
+                    db.addName(name, des)
+                    val i = Intent(this@MainActivity, detail::class.java)
+                    i.putExtra("KEY_NAME",NamaPose2)
+                    startActivity(i)
+                }
+            }
             true
         }
         card3.setOnLongClickListener {
+            val name = NamaPose.toString()
+            val des =  "Pose benefits\n"
+            db.addName(name, des)
             val i = Intent(this@MainActivity, detail::class.java)
             i.putExtra("KEY_NAME",NamaPose3)
             startActivity(i)
