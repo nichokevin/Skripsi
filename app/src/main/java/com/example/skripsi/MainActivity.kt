@@ -74,12 +74,22 @@ class MainActivity : AppCompatActivity() {
             true
         }
         card3.setOnLongClickListener {
-            val name = NamaPose.toString()
+            val name = NamaPose3
             val des =  "Pose benefits\n"
-            db.addName(name, des)
-            val i = Intent(this@MainActivity, detail::class.java)
-            i.putExtra("KEY_NAME",NamaPose3)
-            startActivity(i)
+            val temp = db.getByName(name)
+            if (temp != null) {
+                if(temp.moveToFirst()) {
+                    db.replace(name,des)
+                    val i = Intent(this@MainActivity, detail::class.java)
+                    i.putExtra("KEY_NAME",NamaPose2)
+                    startActivity(i)
+                }else {
+                    db.addName(name, des)
+                    val i = Intent(this@MainActivity, detail::class.java)
+                    i.putExtra("KEY_NAME",NamaPose2)
+                    startActivity(i)
+                }
+            }
             true
         }
 
