@@ -16,12 +16,12 @@
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable-v24\\plank.jpg"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable-v24_cobra.jpg.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable-v24\\cobra.jpg"
+        "merged": "com.example.skripsi.app-merged_res-27:/layout_action_bar_layout.xml.flat",
+        "source": "com.example.skripsi.app-main-29:/layout/action_bar_layout.xml"
     },
     {
-        "merged": "com.example.skripsi.app-merged_res-27:/layout_activity_main.xml.flat",
-        "source": "com.example.skripsi.app-main-29:/layout/activity_main.xml"
+        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable-v24_cobra.jpg.flat",
+        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable-v24\\cobra.jpg"
     },
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-xhdpi_ic_launcher.webp.flat",
@@ -62,10 +62,6 @@
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\drawable_camera.png.flat",
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-29:\\drawable\\camera.png"
-    },
-    {
-        "merged": "com.example.skripsi.app-merged_res-27:/layout_activity_detail.xml.flat",
-        "source": "com.example.skripsi.app-main-29:/layout/activity_detail.xml"
     },
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-27:\\mipmap-mdpi_ic_launcher.webp.flat",
