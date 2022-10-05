@@ -40,17 +40,14 @@ class MainActivity : AppCompatActivity() {
             val des =  "Pose benefits\n"
             val temp = db.getByName(name)
             if (temp != null) {
-                if(temp.moveToFirst()) {
-                    db.replace(name,des)
-                    val i = Intent(this@MainActivity, detail::class.java)
-                    i.putExtra("KEY_NAME",NamaPose)
-                    startActivity(i)
-                }else {
-                    db.addName(name, des)
-                    val i = Intent(this@MainActivity, detail::class.java)
-                    i.putExtra("KEY_NAME",NamaPose)
-                    startActivity(i)
-                }
+                db.replace(name,des)
+                val bundle = Bundle()
+                bundle.putString("nama",temp[0])
+                bundle.putString("des",temp[1])
+                Log.d("isi bundle", bundle.getString("nama").toString())
+                val intent = Intent(this, detail::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
             true
         }
@@ -59,36 +56,31 @@ class MainActivity : AppCompatActivity() {
             val des =  "Pose benefits\n"
             val temp = db.getByName(name)
             if (temp != null) {
-                if(temp.moveToFirst()) {
-                    db.replace(name,des)
-                    val i = Intent(this@MainActivity, detail::class.java)
-                    i.putExtra("KEY_NAME",NamaPose2)
-                    startActivity(i)
-                }else {
-                    db.addName(name, des)
-                    val i = Intent(this@MainActivity, detail::class.java)
-                    i.putExtra("KEY_NAME",NamaPose2)
-                    startActivity(i)
-                }
+                db.replace(name,des)
+                val bundle = Bundle()
+                bundle.putString("nama",temp[0])
+                bundle.putString("des",temp[1])
+                Log.d("isi bundle", bundle.getString("nama").toString())
+                val intent = Intent(this, detail::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
             true
         }
+        card3.setLongClickable(true);
         card3.setOnLongClickListener {
             val name = NamaPose3
             val des =  "Pose benefits\n"
             val temp = db.getByName(name)
             if (temp != null) {
-                if(temp.moveToFirst()) {
-                    db.replace(name,des)
-                    val i = Intent(this@MainActivity, detail::class.java)
-                    i.putExtra("KEY_NAME",NamaPose2)
-                    startActivity(i)
-                }else {
-                    db.addName(name, des)
-                    val i = Intent(this@MainActivity, detail::class.java)
-                    i.putExtra("KEY_NAME",NamaPose2)
-                    startActivity(i)
-                }
+                db.replace(name,des)
+                val bundle = Bundle()
+                bundle.putString("nama",temp[0])
+                bundle.putString("des",temp[1])
+                Log.d("isi bundle", bundle.getString("nama").toString())
+                val intent = Intent(this, detail::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
             true
         }

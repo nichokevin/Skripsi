@@ -100,29 +100,33 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
                 val t = temp.getColumnIndex(DBHelper.DES_COL)
                 Log.d("getAll Nama", temp.getString(test))
                 Log.d("getAll des", temp.getString(t))
-                // get the data into array, or class variable
+
             } while (temp.moveToNext());
         }
         temp.close();
-        return temp
+        return null
 
     }
 
-    fun getByName(data: String): Cursor? {
+    fun getByName(data: String): Array<String>? {
 
         // here we are creating a readable
         // variable of our database
         // as we want to read value from it
         val db = this.readableDatabase
 
-        return db.rawQuery("select * from "+ TABLE_NAME+" where " + NAME_COl + "=?", arrayOf(data))
-        /*try {
-           db.rawQuery("select * from "+ TABLE_NAME+" where " + NAME_COl + "=?", arrayOf(data))
-        }catch (e: SQLException) {
-            return db.execSQL(e.message)
-        }*/
-        // below code returns a cursor to
-        // read data from the database
+        val tempQuery = "select * from "+ TABLE_NAME+" where " + NAME_COl + " =? "
+        db.rawQuery(tempQuery, arrayOf(data)).use {
+            if (it.moveToFirst()) {
+                do {
+                    val test =it.getColumnIndex(DBHelper.NAME_COl)
+                    val t = it.getColumnIndex(DBHelper.DES_COL)
+                    val temp = arrayOf(it.getString(test),it.getString(t))
+                    return temp
+                } while (it.moveToNext());
+            }
+        }
+        return null
     }
 
     companion object{
