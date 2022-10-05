@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         val NamaPose2 = textPose2.text.toString()
         val NamaPose3 = textPose3.text.toString()
 
-        db.getAll()
         card.setOnLongClickListener {
             val name = NamaPose
             val des =  "Pose benefits\n"
@@ -48,6 +47,18 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, detail::class.java)
                 intent.putExtras(bundle)
                 startActivity(intent)
+            }else {
+                db.addName(name,des)
+                val temp = db.getByName(name)
+                if (temp != null) {
+                    val bundle = Bundle()
+                    bundle.putString("nama",temp[0])
+                    bundle.putString("des",temp[1])
+                    Log.d("isi bundle", bundle.getString("nama").toString())
+                    val intent = Intent(this, detail::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
             }
             true
         }
@@ -64,10 +75,22 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, detail::class.java)
                 intent.putExtras(bundle)
                 startActivity(intent)
+            }else {
+                db.addName(name,des)
+                val temp = db.getByName(name)
+                if (temp != null) {
+                    val bundle = Bundle()
+                    bundle.putString("nama",temp[0])
+                    bundle.putString("des",temp[1])
+                    Log.d("isi bundle", bundle.getString("nama").toString())
+                    val intent = Intent(this, detail::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
             }
             true
         }
-        card3.setLongClickable(true);
+
         card3.setOnLongClickListener {
             val name = NamaPose3
             val des =  "Pose benefits\n"
@@ -81,6 +104,18 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, detail::class.java)
                 intent.putExtras(bundle)
                 startActivity(intent)
+            }else {
+                db.addName(name,des)
+                val temp = db.getByName(name)
+                if (temp != null) {
+                    val bundle = Bundle()
+                    bundle.putString("nama",temp[0])
+                    bundle.putString("des",temp[1])
+                    Log.d("isi bundle", bundle.getString("nama").toString())
+                    val intent = Intent(this, detail::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
             }
             true
         }
