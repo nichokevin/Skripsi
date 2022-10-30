@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".deteksi">
 
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/control"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.mlkit.vision.demo.GraphicOverlay
+        android:id="@+id/graphic_overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@id/viewFinder"
+        app:layout_constraintRight_toRightOf="@id/viewFinder"
+        app:layout_constraintTop_toTopOf="@id/viewFinder"
+        app:layout_constraintBottom_toBottomOf="@id/viewFinder"/>
 
     <LinearLayout
         android:id="@+id/control"
@@ -22,7 +37,9 @@
             android:layout_gravity="center_vertical"
             android:background="@layout/toggle_style"
             android:checked="false"
-            android:clickable="true" />
+            android:clickable="true"
+            android:textOff=""
+            android:textOn=""/>
 
         <Spinner
             android:id="@+id/spinner"

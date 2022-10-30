@@ -18,7 +18,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // along with their data types is given
         val query = ("CREATE TABLE " + TABLE_NAME + " (" +
                 NAME_COl + " TEXT PRIMARY KEY," +
-                DES_COL + " TEXT" + "" +
+                DES_COL + " TEXT," + "" +
                 "UNIQUE($NAME_COl))")
         // we are calling sqlite
         // method for executing our query

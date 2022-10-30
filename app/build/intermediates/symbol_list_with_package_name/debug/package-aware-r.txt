@@ -471,6 +471,7 @@ attr iconifiedByDefault
 attr imageAspectRatio
 attr imageAspectRatioAdjust
 attr imageButtonStyle
+attr implementationMode
 attr indeterminateAnimationType
 attr indeterminateProgressStyle
 attr indicatorColor
@@ -751,6 +752,7 @@ attr rippleColor
 attr round
 attr roundPercent
 attr saturation
+attr scaleType
 attr scopeUris
 attr scrimAnimationDuration
 attr scrimBackground
@@ -1907,6 +1909,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
+id compatible
 id confirm_button
 id container
 id content
@@ -1962,9 +1965,15 @@ id expanded_menu
 id facing_switch
 id fade
 id fill
+id fillCenter
+id fillEnd
+id fillStart
 id fill_horizontal
 id fill_vertical
 id filled
+id fitCenter
+id fitEnd
+id fitStart
 id fitToContents
 id fixed
 id flip
@@ -1976,6 +1985,7 @@ id ghost_view_holder
 id gone
 id graph
 id graph_wrap
+id graphic_overlay
 id group_divider
 id grouping
 id groups
@@ -2095,6 +2105,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id performance
 id pin
 id pose1
 id pose2
@@ -2225,6 +2236,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id viewFinder
 id view_offset_helper
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
@@ -2523,6 +2535,22 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string plank
+string pref_category_key_camera
+string pref_category_title_camera
+string pref_key_camera_live_viewport
+string pref_key_camerax_front_camera_target_resolution
+string pref_key_camerax_rear_camera_target_resolution
+string pref_key_front_camera_picture_size
+string pref_key_front_camera_preview_size
+string pref_key_rear_camera_picture_size
+string pref_key_rear_camera_preview_size
+string pref_screen
+string pref_summary_camera_live_viewport
+string pref_title_camera_live_viewport
+string pref_title_camerax_front_camera_target_resolution
+string pref_title_camerax_rear_camera_target_resolution
+string pref_title_front_camera_preview_size
+string pref_title_rear_camera_preview_size
 string search_menu_title
 string status_bar_notification_info_overflow
 string tree
@@ -3350,6 +3378,7 @@ styleable OnClick clickAction targetId
 styleable OnSwipe dragDirection dragScale dragThreshold limitBoundsTo maxAcceleration maxVelocity moveWhenScrollAtTop nestedScrollFlags onTouchUp touchAnchorId touchAnchorSide touchRegionId
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
+styleable PreviewView implementationMode scaleType
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
 styleable RadialViewGroup materialCircleRadius
 styleable RangeSlider minSeparation values

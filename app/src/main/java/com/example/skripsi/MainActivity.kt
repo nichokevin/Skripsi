@@ -1,19 +1,30 @@
 package com.example.skripsi
 
 import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.cardview.widget.CardView
 import com.example.skripsi.databaseLokal.DBHelper
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
+
+    private fun isUsingNightModeResources(): Boolean {
+        return when (resources.configuration.uiMode and
+                Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_YES -> true
+            Configuration.UI_MODE_NIGHT_NO -> false
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> false
+            else -> false
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +33,20 @@ class MainActivity : AppCompatActivity() {
         val db = DBHelper(this, null)
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
         supportActionBar?.setCustomView(R.layout.action_bar_layout);
+
+        val cekTema = isUsingNightModeResources()
+        if (cekTema==true){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            val actionBar: ActionBar?
+            actionBar = supportActionBar
+            val colorDrawable = ColorDrawable(Color.parseColor("#0F9D58"))
+
+            actionBar!!.setBackgroundDrawable(colorDrawable)
+            delegate.applyDayNight()
+        }else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            delegate.applyDayNight()
+        }
 
         val textPose = findViewById<TextView>(R.id.pose1)
         val textPose2 = findViewById<TextView>(R.id.pose2)
