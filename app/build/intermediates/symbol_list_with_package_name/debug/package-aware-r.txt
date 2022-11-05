@@ -1962,7 +1962,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id facing_switch
 id fade
 id fill
 id fillCenter
@@ -1985,7 +1984,6 @@ id ghost_view_holder
 id gone
 id graph
 id graph_wrap
-id graphic_overlay
 id group_divider
 id grouping
 id groups
@@ -2116,6 +2114,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id rect_overlay
 id rectangles
 id reverseSawtooth
 id right
@@ -2208,6 +2207,7 @@ id textTop
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_view_id
 id textinput_counter
 id textinput_error
 id textinput_helper_text

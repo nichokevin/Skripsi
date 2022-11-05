@@ -6,7 +6,9 @@ plugins {
 }
 
 android {
+    apply plugin: 'kotlin-android-extensions'
     compileSdk 32
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.skripsi"
@@ -14,6 +16,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,6 +51,7 @@ dependencies {
     implementation 'com.google.mlkit:pose-detection:18.0.0-beta3'
     // Pose detection with accurate models
     implementation 'com.google.mlkit:pose-detection-accurate:18.0.0-beta3'
+
 
     def camerax_version = "1.1.0-beta01"
     implementation "androidx.camera:camera-core:${camerax_version}"

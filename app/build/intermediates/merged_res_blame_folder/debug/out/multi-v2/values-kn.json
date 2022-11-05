@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\nicho\\.gradle\\caches\\transforms-3\\35b25b86bfa3e345524c80d4c46b2007\\transformed\\play-services-basement-18.1.0\\res\\values-kn\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "141",
-                        "endOffsets": "336"
-                    },
-                    "to": {
-                        "startLines": "45",
-                        "startColumns": "4",
-                        "startOffsets": "4423",
-                        "endColumns": "145",
-                        "endOffsets": "4564"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\nicho\\.gradle\\caches\\transforms-3\\e691856cbd4f11b2d69f00191f3b8465\\transformed\\play-services-base-18.1.0\\res\\values-kn\\values.xml",
+                    "source": "C:\\Users\\nicho\\.gradle\\caches\\transforms-3\\1b9d82424556447479e62f5f6c892176\\transformed\\jetified-play-services-base-18.1.0\\res\\values-kn\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -69,6 +52,23 @@
                         "startOffsets": "3415,3526,3696,3829,3944,4087,4216,4324,4569,4719,4832,4997,5132,5277,5434,5503,5566",
                         "endColumns": "110,169,132,114,142,128,107,98,149,112,164,134,144,156,68,62,84",
                         "endOffsets": "3521,3691,3824,3939,4082,4211,4319,4418,4714,4827,4992,5127,5272,5429,5498,5561,5646"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\nicho\\.gradle\\caches\\transforms-3\\76b84db463ed9538525c07731ad7dbfb\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-kn\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "141",
+                        "endOffsets": "336"
+                    },
+                    "to": {
+                        "startLines": "45",
+                        "startColumns": "4",
+                        "startOffsets": "4423",
+                        "endColumns": "145",
+                        "endOffsets": "4564"
                     }
                 },
                 {

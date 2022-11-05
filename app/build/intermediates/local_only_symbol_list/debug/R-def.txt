@@ -21,13 +21,13 @@ id card_view2
 id card_view3
 id control
 id detailPose
-id facing_switch
-id graphic_overlay
 id namaPose
 id pose1
 id pose2
 id pose3
+id rect_overlay
 id spinner
+id text_view_id
 id titleApp
 id viewFinder
 layout action_bar_layout

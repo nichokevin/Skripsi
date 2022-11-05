@@ -28,20 +28,16 @@
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\layout_action_bar_layout.xml.flat",
-        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\layout\\action_bar_layout.xml"
+        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.skripsi.app-merged_res-33:/layout_action_bar_layout.xml.flat",
-        "source": "com.example.skripsi.app-main-35:/layout/action_bar_layout.xml"
+        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\layout_action_bar_layout.xml.flat",
+        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\layout\\action_bar_layout.xml"
     },
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\drawable_camera.png.flat",
@@ -94,6 +90,10 @@
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-pngs-28:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.skripsi.app-merged_res-33:/layout_activity_deteksi.xml.flat",
+        "source": "com.example.skripsi.app-main-35:/layout/activity_deteksi.xml"
     },
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\mipmap-mdpi_ic_launcher_round.webp.flat",

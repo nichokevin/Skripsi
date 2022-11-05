@@ -8,6 +8,7 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="32" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.camera.any" />
