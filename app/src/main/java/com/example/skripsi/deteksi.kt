@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -159,6 +160,7 @@ class deteksi : AppCompatActivity() {
     private lateinit var cameraExecutor: ExecutorService
     private var cameraSelector: CameraSelector? = null
     private lateinit var textView : TextView;
+    private var lensFacing = CameraSelector.LENS_FACING_BACK
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -172,18 +174,14 @@ class deteksi : AppCompatActivity() {
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-        // Set up the listener for take photo button
-//        camera_capture_button.setOnClickListener { takePhoto() }
-
-        //binding.textViewId
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        /*val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
+        val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         cameraSwitch.setOnClickListener {
             if (lensFacing == CameraSelector.LENS_FACING_FRONT) lensFacing = CameraSelector.LENS_FACING_BACK
             else if (lensFacing == CameraSelector.LENS_FACING_BACK) lensFacing = CameraSelector.LENS_FACING_FRONT
-            //startCamera();
-        }*/
+            startCamera();
+        }
 
     }
 
@@ -424,7 +422,7 @@ class deteksi : AppCompatActivity() {
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
+        Log.d("kamera",lensFacing.toString())
         cameraProviderFuture.addListener(Runnable {
             // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
@@ -446,8 +444,13 @@ class deteksi : AppCompatActivity() {
             imageCapture = ImageCapture.Builder()
                 .build()
 
-            // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            var cameraSelector: CameraSelector
+            if(lensFacing == 1) {
+                cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            }
+            else {
+                cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+            }
 
             try {
                 // Unbind use cases before rebinding

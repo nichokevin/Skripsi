@@ -21,6 +21,7 @@ id card_view2
 id card_view3
 id control
 id detailPose
+id facing_switch
 id namaPose
 id pose1
 id pose2
