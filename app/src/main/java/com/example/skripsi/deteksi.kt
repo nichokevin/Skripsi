@@ -9,6 +9,7 @@ import android.graphics.*
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
+import android.view.Surface
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -30,16 +31,13 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import kotlin.math.atan2
 
-//import com.google.mlkit.vision.demo.VisionImageProcessor
-//import com.google.mlkit.vision.demo.kotlin.posedetector.PoseDetectorProcessor
-
 private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : ImageAnalysis.Analyzer {
 
     private val options = AccuratePoseDetectorOptions.Builder()
         .setDetectorMode(AccuratePoseDetectorOptions.STREAM_MODE)
         .build()
 
-    private val poseDetector = PoseDetection.getClient(options);
+    private val poseDetector = PoseDetection.getClient(options)
 
     @SuppressLint("UnsafeExperimentalUsageError", "UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy) {
@@ -97,7 +95,7 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
     }
 
     fun clear() {
-        extraCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        extraCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
     }
 
     internal fun drawLine(
@@ -108,58 +106,57 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
         val end = endLandmark!!.position
 
 
-        val xmul = 3.3f;
-        val ymul = 3.3f;
+        val xmul = 3.3f
+        val ymul = 3.3f
 
         extraCanvas.drawLine(
             (start.x * xmul) - 250, start.y* ymul, (end.x* xmul) -250, end.y* ymul, paint
         )
-        invalidate();
+        invalidate()
     }
 
     internal fun drawNeck(
-        _occhioSx: PoseLandmark?,
-        _occhioDx: PoseLandmark?,
-        _spallaSx: PoseLandmark?,
-        _spallaDx: PoseLandmark?
+        _mataKiri: PoseLandmark?,
+        _mataKanan: PoseLandmark?,
+        _bahuKiri: PoseLandmark?,
+        _bahuKanan: PoseLandmark?
     ) {
 
-        val xmul = 3.3f;
-        val ymul = 3.3f;
+        val xmul = 3.3f
+        val ymul = 3.3f
 
 
-        val occhioSx = _occhioSx!!.position
-        val occhioDx = _occhioDx!!.position
-        val spallaSx = _spallaSx!!.position
-        val spallaDx = _spallaDx!!.position
+        val mataKiri = _mataKiri!!.position
+        val mataKanan = _mataKanan!!.position
+        val bahuKiri = _bahuKiri!!.position
+        val bahuKanan = _bahuKanan!!.position
 
 
-        val fineColloX =  occhioDx.x +  ((occhioSx.x - occhioDx.x) / 2);
-        val fineColloY = occhioDx.y + ((occhioSx.y - occhioDx.y) / 2);
+        val fineColloX =  mataKanan.x +  ((mataKiri.x - mataKanan.x) / 2)
+        val fineColloY = mataKanan.y + ((mataKiri.y - mataKanan.y) / 2)
 
-        val inizioColloX = spallaDx.x + ((spallaSx.x - spallaDx.x ) / 2);
-        val inizioColloY = spallaDx.y + ((spallaSx.y - spallaDx.y) / 2);
+        val inizioColloX = bahuKanan.x + ((bahuKiri.x - bahuKanan.x ) / 2)
+        val inizioColloY = bahuKanan.y + ((bahuKiri.y - bahuKanan.y) / 2)
 
         extraCanvas.drawLine(
             (fineColloX * xmul) - 250, fineColloY* ymul, (inizioColloX* xmul) -250, inizioColloY* ymul, paint
         )
 
         extraCanvas.drawLine(
-            (occhioSx.x * xmul) - 250, occhioSx.y* ymul, (occhioDx.x* xmul) -250, occhioDx.y* ymul, paint
+            (mataKiri.x * xmul) - 250, mataKiri.y* ymul, (mataKanan.x* xmul) -250, mataKanan.y* ymul, paint
         )
-        invalidate();
+        invalidate()
     }
 
 
 }
 
 class deteksi : AppCompatActivity() {
-    //private lateinit var binding: ActivityDeteksiBinding
     private var imageCapture: ImageCapture? = null
 
     private lateinit var cameraExecutor: ExecutorService
     private var cameraSelector: CameraSelector? = null
-    private lateinit var textView : TextView;
+    private lateinit var textView : TextView
     private var lensFacing = CameraSelector.LENS_FACING_BACK
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -174,13 +171,16 @@ class deteksi : AppCompatActivity() {
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
+        val namaPose = intent.extras?.get("KEY_NAME")
+        Log.d("menerimadata",namaPose.toString())
+
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         cameraSwitch.setOnClickListener {
             if (lensFacing == CameraSelector.LENS_FACING_FRONT) lensFacing = CameraSelector.LENS_FACING_BACK
             else if (lensFacing == CameraSelector.LENS_FACING_BACK) lensFacing = CameraSelector.LENS_FACING_FRONT
-            startCamera();
+            startCamera()
         }
 
     }
@@ -237,8 +237,6 @@ class deteksi : AppCompatActivity() {
 
     private fun onTextFound(pose: Pose)  {
         try {
-
-
             val leftShoulder = pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER)
             val rightShoulder = pose.getPoseLandmark(PoseLandmark.RIGHT_SHOULDER)
             val leftElbow = pose.getPoseLandmark(PoseLandmark.LEFT_ELBOW)
@@ -263,57 +261,57 @@ class deteksi : AppCompatActivity() {
             val leftFootIndex = pose.getPoseLandmark(PoseLandmark.LEFT_FOOT_INDEX)
             val rightFootIndex = pose.getPoseLandmark(PoseLandmark.RIGHT_FOOT_INDEX)
 
-            val occhioSx = pose.getPoseLandmark(PoseLandmark.LEFT_EYE);
-            val occhioDx = pose.getPoseLandmark(PoseLandmark.RIGHT_EYE);
+            val leftEye = pose.getPoseLandmark(PoseLandmark.LEFT_EYE)
+            val rightEye = pose.getPoseLandmark(PoseLandmark.RIGHT_EYE)
 
-            val orecchioDx = pose.getPoseLandmark(PoseLandmark.RIGHT_EAR);
-            val orecchioSx = pose.getPoseLandmark(PoseLandmark.LEFT_EAR);
+            val rightEar = pose.getPoseLandmark(PoseLandmark.RIGHT_EAR) //telinga Kanan
+            val leftEar = pose.getPoseLandmark(PoseLandmark.LEFT_EAR)
 
 
             val builder = StringBuilder()
             rect_overlay.clear()
 
-            // disegno il collo come la media tra occhi e orecchie
-            if( occhioSx != null && occhioDx != null && leftShoulder != null && rightShoulder != null  ){
-                rect_overlay.drawNeck(occhioSx, occhioDx, leftShoulder, rightShoulder);
+            // menggambar leher sebagai rata-rata antara mata dan telinga
+            if( leftEye != null && rightEye != null && leftShoulder != null && rightShoulder != null  ){
+                rect_overlay.drawNeck(leftEye, rightEye, leftShoulder, rightShoulder)
             }
 
-            // disegno il collo visto lateralmente da sinistra
-            if(orecchioSx != null && leftShoulder != null){
-                rect_overlay.drawLine(orecchioSx, leftShoulder)
-                var angoloCollo = getNeckAngle(orecchioSx, leftShoulder);
-                builder.append("${90 - angoloCollo.toInt()} collo (da sx) \n")
+            // menggambar leher yang terlihat menyamping dari kiri
+            if(leftEar != null && leftShoulder != null){
+                rect_overlay.drawLine(leftEar, leftShoulder)
+                val sudutLeher = getNeckAngle(leftEar, leftShoulder)
+                builder.append("${90 - sudutLeher.toInt()} collo (da sx) \n")
             }
 
-            // disegno il collo visto lateralmente da destra
-            if(orecchioDx != null && rightShoulder != null){
-                rect_overlay.drawLine(orecchioDx, rightShoulder)
-                var angoloCollo = getNeckAngle(orecchioDx, rightShoulder);
-                builder.append("${90 - angoloCollo.toInt()} collo (da dx) \n")
+            // Menggambar leher yang terlihat menyamping dari kanan
+            if(rightEar != null && rightShoulder != null){
+                rect_overlay.drawLine(rightEar, rightShoulder)
+                val sudutLeher = getNeckAngle(rightEar, rightShoulder)
+                builder.append("${90 - sudutLeher.toInt()} collo (da dx) \n")
             }
 
-            // angolo busto destra
+            // pojok dada kanan
             if(rightShoulder != null && rightHip != null && rightKnee != null){
-                var angoloBusto = getAngle(rightShoulder, rightHip, rightKnee);
+                val angoloBusto = getAngle(rightShoulder, rightHip, rightKnee)
                 builder.append("${ 180 - angoloBusto.toInt()} busto (da dx) \n")
             }
 
-            // angolo busto sinistra
+            // pojok dada kiri
             if(leftShoulder != null && leftHip != null && leftKnee != null){
-                var angoloBusto = getAngle(leftShoulder, leftHip, leftKnee);
+                val angoloBusto = getAngle(leftShoulder, leftHip, leftKnee)
                 builder.append("${180 - angoloBusto.toInt()} busto (da sx) \n")
             }
 
 
-            // angolo gamba destra
+            // sudut kaki kanan
             if( rightHip != null && rightKnee != null  && rightAnkle != null){
-                var angoloBusto = getAngle( rightHip, rightKnee, rightAnkle);
+                val angoloBusto = getAngle( rightHip, rightKnee, rightAnkle)
                 builder.append("${ 180 - angoloBusto.toInt()} gamba (da dx) \n")
             }
 
-            // angolo gamba sinistra
+            // sudut kaki kiri
             if( leftHip != null && leftKnee != null  && leftAnkle != null){
-                var angoloBusto = getAngle( leftHip, leftKnee,leftAnkle);
+                val angoloBusto = getAngle( leftHip, leftKnee,leftAnkle)
                 builder.append("${ 180 - angoloBusto.toInt()} gamba (da sx) \n")
             }
 
@@ -423,46 +421,76 @@ class deteksi : AppCompatActivity() {
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         Log.d("kamera",lensFacing.toString())
-        cameraProviderFuture.addListener(Runnable {
+        cameraProviderFuture.addListener({
             // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
-            // Preview
-            val preview = Preview.Builder()
-                .build()
-                .also {
-                    it.setSurfaceProvider(viewFinder.surfaceProvider)
-                }
+            if(lensFacing==1){
+                // Preview
+                val preview = Preview.Builder()
+                    .build()
+                    .also {
+                        it.setSurfaceProvider(viewFinder.surfaceProvider)
+                    }
 
+                val imageAnalyzer = ImageAnalysis.Builder()
+                    .build()
+                    .also {
+                        it.setAnalyzer(cameraExecutor,PoseAnalyzer(::onTextFound))
+                    }
 
-            val imageAnalyzer = ImageAnalysis.Builder()
-                .build()
-                .also {
-                    it.setAnalyzer(cameraExecutor,PoseAnalyzer(::onTextFound))
-                }
+                imageCapture = ImageCapture.Builder()
+                    .build()
 
-            imageCapture = ImageCapture.Builder()
-                .build()
-
-            var cameraSelector: CameraSelector
-            if(lensFacing == 1) {
+                val cameraSelector: CameraSelector
                 cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-            }
-            else {
-                cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+
+                try {
+                    // Unbind use cases before rebinding
+                    cameraProvider.unbindAll()
+
+                    // Bind use cases to camera
+                    cameraProvider.bindToLifecycle(
+                        this, cameraSelector, preview, imageCapture, imageAnalyzer)
+
+                } catch(exc: Exception) {
+                    Log.e(TAG, "Use case binding failed", exc)
+                }
+            }else{
+                rect_overlay.scaleX=-1f
+                val preview = Preview.Builder()
+                    .build()
+                    .also {
+                        it.setSurfaceProvider(viewFinder.surfaceProvider)
+                    }
+
+                val imageAnalyzer = ImageAnalysis.Builder()
+                    .build()
+                    .also {
+                        it.setAnalyzer(cameraExecutor,PoseAnalyzer(::onTextFound))
+                    }
+
+                imageCapture = ImageCapture.Builder()
+                    .build()
+
+                val cameraSelector: CameraSelector
+                    cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+                try {
+                    // Unbind use cases before rebinding
+                    cameraProvider.unbindAll()
+
+                    // Bind use cases to camera
+                    cameraProvider.bindToLifecycle(
+                        this, cameraSelector, preview, imageCapture, imageAnalyzer)
+
+                } catch(exc: Exception) {
+                    Log.e(TAG, "Use case binding failed", exc)
+                }
             }
 
-            try {
-                // Unbind use cases before rebinding
-                cameraProvider.unbindAll()
 
-                // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview, imageCapture, imageAnalyzer)
 
-            } catch(exc: Exception) {
-                Log.e(TAG, "Use case binding failed", exc)
-            }
+
 
         }, ContextCompat.getMainExecutor(this))
     }
@@ -479,7 +507,6 @@ class deteksi : AppCompatActivity() {
 
     companion object {
         private const val TAG = "CameraXBasic"
-        private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
