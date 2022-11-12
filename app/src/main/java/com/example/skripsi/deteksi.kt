@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.*
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Surface
@@ -27,9 +28,11 @@ import com.google.mlkit.vision.pose.PoseLandmark
 import com.google.mlkit.vision.pose.accurate.AccuratePoseDetectorOptions
 import com.google.mlkit.vision.pose.defaults.PoseDetectorOptions
 import kotlinx.android.synthetic.main.activity_deteksi.*
+import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import kotlin.math.atan2
+private var drawColor = Color.GREEN
 
 private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : ImageAnalysis.Analyzer {
 
@@ -38,6 +41,8 @@ private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : Imag
         .build()
 
     private val poseDetector = PoseDetection.getClient(options)
+
+
 
     @SuppressLint("UnsafeExperimentalUsageError", "UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy) {
@@ -67,7 +72,7 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
     private lateinit var extraCanvas: Canvas
     private lateinit var extraBitmap: Bitmap
     private val STROKE_WIDTH = 3f // has to be float
-    private val drawColor = Color.RED
+
     // Set up the paint with which to draw.
     private val paint = Paint().apply {
         color = drawColor
@@ -151,8 +156,9 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
 
 }
 
-class deteksi : AppCompatActivity() {
+class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var imageCapture: ImageCapture? = null
+    private var tts: TextToSpeech? = null
 
     private lateinit var cameraExecutor: ExecutorService
     private var cameraSelector: CameraSelector? = null
@@ -163,6 +169,7 @@ class deteksi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deteksi)
 
+        tts = TextToSpeech(this, this)
         // Request camera permissions
         if (allPermissionsGranted()) {
             startCamera()
@@ -171,8 +178,6 @@ class deteksi : AppCompatActivity() {
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-        val namaPose = intent.extras?.get("KEY_NAME")
-        Log.d("menerimadata",namaPose.toString())
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
@@ -235,7 +240,15 @@ class deteksi : AppCompatActivity() {
         return result
     }
 
+    private fun speakOut(text:String) {
+        Log.d("ttsresult","masuk")
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
+    }
+
     private fun onTextFound(pose: Pose)  {
+        val namaPose = intent.extras?.get("KEY_NAME")
+        Log.d("menerimadata",namaPose.toString())
+
         try {
             val leftShoulder = pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER)
             val rightShoulder = pose.getPoseLandmark(PoseLandmark.RIGHT_SHOULDER)
@@ -267,7 +280,6 @@ class deteksi : AppCompatActivity() {
             val rightEar = pose.getPoseLandmark(PoseLandmark.RIGHT_EAR) //telinga Kanan
             val leftEar = pose.getPoseLandmark(PoseLandmark.LEFT_EAR)
 
-
             val builder = StringBuilder()
             rect_overlay.clear()
 
@@ -280,39 +292,96 @@ class deteksi : AppCompatActivity() {
             if(leftEar != null && leftShoulder != null){
                 rect_overlay.drawLine(leftEar, leftShoulder)
                 val sudutLeher = getNeckAngle(leftEar, leftShoulder)
-                builder.append("${90 - sudutLeher.toInt()} collo (da sx) \n")
             }
 
             // Menggambar leher yang terlihat menyamping dari kanan
             if(rightEar != null && rightShoulder != null){
                 rect_overlay.drawLine(rightEar, rightShoulder)
                 val sudutLeher = getNeckAngle(rightEar, rightShoulder)
-                builder.append("${90 - sudutLeher.toInt()} collo (da dx) \n")
             }
 
-            // pojok dada kanan
+            // badan kanan
             if(rightShoulder != null && rightHip != null && rightKnee != null){
-                val angoloBusto = getAngle(rightShoulder, rightHip, rightKnee)
-                builder.append("${ 180 - angoloBusto.toInt()} busto (da dx) \n")
+                val sudutBK = getAngle(rightShoulder, rightHip, rightKnee)
+                Log.d("sudutbkk", sudutBK.toInt().toString())
+                if (namaPose=="Pose Plank"){
+
+                }else if(namaPose=="Pose Tree"){
+                    if(sudutBK in 171.0..177.0){
+                        Log.d("cekposebkk","benar")
+                    }else{
+                        Log.d("cekposebkk","salah")
+                        val text = "wrong"
+                        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
+                    }
+                }else if(namaPose=="Pose Cobra"){
+
+                }
             }
 
-            // pojok dada kiri
+            // pojok kaki kiri
             if(leftShoulder != null && leftHip != null && leftKnee != null){
-                val angoloBusto = getAngle(leftShoulder, leftHip, leftKnee)
-                builder.append("${180 - angoloBusto.toInt()} busto (da sx) \n")
+                val sudutBKR = getAngle(leftShoulder, leftHip, leftKnee)
+                Log.d("sudutbkr", sudutBKR.toInt().toString())
+                if (namaPose=="Pose Plank"){
+
+                }else if(namaPose=="Pose Tree"){
+                    if(sudutBKR in 121.0..127.0){
+                        Log.d("cekposebkr","benar")
+                    }else{
+                        Log.d("cekposebkr","salah")
+                        drawColor=Color.RED
+                    }
+                }else if(namaPose=="Pose Cobra"){
+
+                }
             }
 
+            // pojok tangan kanan
+            if(rightShoulder != null && rightElbow != null && rightWrist != null){
+                val sudutKanan = getAngle(rightShoulder, rightElbow, rightWrist)
+                Log.d("suduttangankanan", sudutKanan.toInt().toString())
+                if (namaPose=="Pose Plank"){
+
+                }else if(namaPose=="Pose Tree"){
+                    if(sudutKanan in 48.0..56.0){
+                        Log.d("cekposetk","benar")
+                    }else{
+                        Log.d("cekposetk","salah")
+                    }
+                }else if(namaPose=="Pose Cobra"){
+
+                }
+            }
+
+            // pojok tangan kiri
+            if(leftShoulder != null && leftElbow != null && leftWrist != null){
+                val sudutKiri = getAngle(leftShoulder, leftElbow, leftWrist)
+                Log.d("suduttangankiri", sudutKiri.toInt().toString())
+                if (namaPose=="Pose Plank"){
+
+                }else if(namaPose=="Pose Tree"){
+                    if(sudutKiri in 48.0..56.0){
+                        Log.d("cekpose","benar")
+                    }else{
+                        Log.d("cekpose","salah")
+                        drawColor=Color.RED
+                    }
+                }else if(namaPose=="Pose Cobra"){
+
+                }
+            }
 
             // sudut kaki kanan
             if( rightHip != null && rightKnee != null  && rightAnkle != null){
                 val angoloBusto = getAngle( rightHip, rightKnee, rightAnkle)
-                builder.append("${ 180 - angoloBusto.toInt()} gamba (da dx) \n")
+                Log.d("sudutkakikanan", "${ 180 - angoloBusto.toInt()}")
             }
 
             // sudut kaki kiri
             if( leftHip != null && leftKnee != null  && leftAnkle != null){
                 val angoloBusto = getAngle( leftHip, leftKnee,leftAnkle)
-                builder.append("${ 180 - angoloBusto.toInt()} gamba (da sx) \n")
+                Log.d("sudutkakikiri", "${ 180 - angoloBusto.toInt()}")
             }
 
 
@@ -426,6 +495,7 @@ class deteksi : AppCompatActivity() {
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
             if(lensFacing==1){
+                rect_overlay.scaleX=1f
                 // Preview
                 val preview = Preview.Builder()
                     .build()
@@ -487,11 +557,6 @@ class deteksi : AppCompatActivity() {
                     Log.e(TAG, "Use case binding failed", exc)
                 }
             }
-
-
-
-
-
         }, ContextCompat.getMainExecutor(this))
     }
 
@@ -509,5 +574,18 @@ class deteksi : AppCompatActivity() {
         private const val TAG = "CameraXBasic"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.ENGLISH)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("ttsresult","The Language not supported!")
+            } else {
+            }
+        }else{
+            Log.e("ttsresult","Initilization Failed!")
+        }
     }
 }

@@ -118,7 +118,9 @@ class MainActivity : AppCompatActivity() {
 
         card3.setOnLongClickListener {
             val name = NamaPose3
-            val des =  "Pose benefits\n"
+            val des =  "Postur kobra (bhujangasana) adalah postur melengkungkan punggung ke " +
+                    "belakang yang dilakukan dengan meregangkan otot dada, lengan, dan bahu. Postur ini " +
+                    "sangat baik untuk meningkatkan kelenturan tulang belakang dan mengurangi nyeri punggung."
             val temp = db.getByName(name)
             if (temp != null) {
                 db.replace(name,des)
