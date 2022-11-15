@@ -12,11 +12,14 @@ color white
 drawable backarrow
 drawable camera
 drawable cobra
+drawable cobraani
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable iconyoga
 drawable plank
+drawable poseplank
 drawable tree
+drawable treeani
 id Gpose1
 id Gpose2
 id Gpose3
@@ -27,6 +30,7 @@ id card_view3
 id control
 id detailPose
 id facing_switch
+id image
 id namaPose
 id pose1
 id pose2

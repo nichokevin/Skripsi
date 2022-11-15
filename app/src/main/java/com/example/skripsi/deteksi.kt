@@ -254,7 +254,6 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         return result
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun onTextFound(pose: Pose)  {
         val namaPose = intent.extras?.get("KEY_NAME")
         val arahPose = intent.extras?.get("arah")
@@ -791,8 +790,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
             Toast.makeText(this@deteksi, "Errore", Toast.LENGTH_SHORT).show()
         }
     }
-
-    @RequiresApi(Build.VERSION_CODES.O)
+    
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         Log.d("kamera",lensFacing.toString())

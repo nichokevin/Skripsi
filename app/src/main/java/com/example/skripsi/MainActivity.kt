@@ -1,5 +1,6 @@
 package com.example.skripsi
 
+import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.res.Configuration
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityCompat
 import com.example.skripsi.databaseLokal.DBHelper
 
 
@@ -33,9 +35,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val db = DBHelper(this, null)
-        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
-        supportActionBar?.setCustomView(R.layout.action_bar_layout);
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.action_bar_layout)
 
+        ActivityCompat.requestPermissions(
+            this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
+        )
         val cekTema = isUsingNightModeResources()
         if (cekTema==true){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -206,5 +211,9 @@ class MainActivity : AppCompatActivity() {
             }.create().show()
         }
 
+    }
+    companion object {
+        private const val REQUEST_CODE_PERMISSIONS = 10
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 }

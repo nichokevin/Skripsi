@@ -3,9 +3,11 @@ package com.example.skripsi
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -61,5 +63,18 @@ class detail : AppCompatActivity() {
             textPose.text = bundle.getString("nama")
             detailPose.text = bundle.getString("des")
         }
+        val pict= findViewById<ImageView>(R.id.image)
+        when (textPose.text) {
+            "Pose Plank" -> {
+                pict.setImageResource(R.drawable.poseplank)
+            }
+            "Pose Tree" -> {
+                pict.setImageResource(R.drawable.treeani)
+            }
+            else -> {
+                pict.setImageResource(R.drawable.cobraani)
+            }
+        }
+
     }
 }
