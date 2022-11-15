@@ -168,7 +168,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var tts: TextToSpeech? = null
 
     private lateinit var cameraExecutor: ExecutorService
-    private var lensFacing = CameraSelector.LENS_FACING_BACK
+    private var lensFacing = CameraSelector.LENS_FACING_FRONT
     private var bKanan=true
     private var bKiri=true
     private var tKanan=true
@@ -200,9 +200,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             if (lensFacing == CameraSelector.LENS_FACING_FRONT) lensFacing = CameraSelector.LENS_FACING_BACK
             else if (lensFacing == CameraSelector.LENS_FACING_BACK) lensFacing = CameraSelector.LENS_FACING_FRONT
-            Timer().schedule(10000){
-                startCamera()
-            }
+            startCamera()
         }
 
     }
@@ -274,7 +272,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         headLine.style = Paint.Style.STROKE // default: FILL
         headLine.strokeJoin = Paint.Join.ROUND // default: MITER
         headLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        headLine.strokeWidth = 3f
+        headLine.strokeWidth = 10f
 
         var lhandLine = Paint()
         lhandLine.color=Color.GREEN
@@ -284,7 +282,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lhandLine.style = Paint.Style.STROKE // default: FILL
         lhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lhandLine.strokeWidth = 3f
+        lhandLine.strokeWidth = 10f
 
         var rhandLine = Paint()
         rhandLine.color=Color.GREEN
@@ -294,7 +292,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rhandLine.style = Paint.Style.STROKE // default: FILL
         rhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rhandLine.strokeWidth = 3f
+        rhandLine.strokeWidth = 10f
 
         var lbodyLine = Paint()
         lbodyLine.color=Color.GREEN
@@ -304,7 +302,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lbodyLine.style = Paint.Style.STROKE // default: FILL
         lbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lbodyLine.strokeWidth = 3f
+        lbodyLine.strokeWidth = 10f
 
         var rbodyLine = Paint()
         rbodyLine.color=Color.GREEN
@@ -315,7 +313,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rbodyLine.style = Paint.Style.STROKE // default: FILL
         rbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rbodyLine.strokeWidth = 3f
+        rbodyLine.strokeWidth = 10f
 
         var lfootLine = Paint()
         lfootLine.color=Color.GREEN
@@ -327,7 +325,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lfootLine.style = Paint.Style.STROKE // default: FILL
         lfootLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lfootLine.strokeWidth = 3f
+        lfootLine.strokeWidth = 10f
 
         var rfootLine = Paint()
         rfootLine.color=Color.GREEN
@@ -339,7 +337,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rfootLine.style = Paint.Style.STROKE // default: FILL
         rfootLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rfootLine.strokeWidth = 3f
+        rfootLine.strokeWidth = 10f
 
         try {
 
@@ -445,7 +443,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         bKiri=false
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutBKR in 121.0..127.0){
+                    if(sudutBKR in 115.0..127.0){
                         Log.d("cekposebkr","benar")
                         lbodyLine.color=Color.GREEN
                         bKiri=true
@@ -519,7 +517,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         tKiri=false
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutKiri in 45.0..54.0){
+                    if(sudutKiri in 45.0..56.0){
                         Log.d("cekposetr","benar")
                         lhandLine.color=Color.GREEN
                         tKiri=true
@@ -617,19 +615,19 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             if(!tKanan || !tKiri){
                 val text = "incorrect arm position"
-                val delayMs = 2000
+                val delayMs = 4000
                 handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
                     delayMs.toLong()
                 )
             }else if(!bKanan||!bKiri){
                 val text = "incorrect body position"
-                val delayMs = 2000
+                val delayMs = 4000
                 handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
                     delayMs.toLong()
                 )
             }else if(!kKanan||!kKiri){
                 val text = "incorrect foot position"
-                val delayMs = 2000
+                val delayMs = 4000
                 handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
                     delayMs.toLong()
                 )
