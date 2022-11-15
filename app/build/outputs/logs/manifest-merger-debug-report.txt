@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta3] C:\Users\nicho\.gradle\caches\transforms-3\da46971b5a6f357af4a78c6db706e5f4\transformed\jetified-pose-detection-18.0.0-beta3\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.mlkit:pose-detection-accurate:18.0.0-beta3] C:\Users\nicho\.gradle\caches\transforms-3\37a0b5349e479552f24ef13a5a2fbf64\transformed\jetified-pose-detection-accurate-18.0.0-beta3\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.mlkit:pose-detection-common:18.0.0-beta3] C:\Users\nicho\.gradle\caches\transforms-3\75cc340b7d10b78a3d5c6f6d627aeec3\transformed\jetified-pose-detection-common-18.0.0-beta3\AndroidManifest.xml:2:1-35:12
@@ -72,22 +72,22 @@ MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\nicho\.gradle\cach
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\nicho\.gradle\caches\transforms-3\83c6b4bfbceb2fdec1c53edec7154366\transformed\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\nicho\.gradle\caches\transforms-3\ee181849826c8e9f21503a4d28b23b38\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\nicho\.gradle\caches\transforms-3\c14c4721fa892fc79f271fa0c129129e\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:2:1-9:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
 	package
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:4:5-34
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-49:12
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:1-50:12
 		INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:2:11-69
@@ -108,7 +108,7 @@ ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:11:5-65
 	android:name
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:11:22-62
 application
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:13:5-47:19
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:13:5-48:19
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta3] C:\Users\nicho\.gradle\caches\transforms-3\da46971b5a6f357af4a78c6db706e5f4\transformed\jetified-pose-detection-18.0.0-beta3\AndroidManifest.xml:7:5-20
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta3] C:\Users\nicho\.gradle\caches\transforms-3\da46971b5a6f357af4a78c6db706e5f4\transformed\jetified-pose-detection-18.0.0-beta3\AndroidManifest.xml:7:5-20
 MERGED from [com.google.mlkit:pose-detection-accurate:18.0.0-beta3] C:\Users\nicho\.gradle\caches\transforms-3\37a0b5349e479552f24ef13a5a2fbf64\transformed\jetified-pose-detection-accurate-18.0.0-beta3\AndroidManifest.xml:7:5-20
@@ -200,7 +200,9 @@ ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:32:13-34:3
 	android:name
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:33:17-52
 activity#com.example.skripsi.deteksi
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:36:9-39:66
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:36:9-40:51
+	android:screenOrientation
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:40:13-49
 	android:exported
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:38:13-37
 	android:theme
@@ -208,17 +210,17 @@ ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:36:9-39:66
 	android:name
 		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:37:13-36
 activity#com.example.skripsi.detail
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:40:9-42:40
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:41:9-43:40
 	android:exported
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:42:13-37
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:43:13-37
 	android:name
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:41:13-35
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:42:13-35
 activity#com.example.skripsi.MainActivity
-ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:43:9-46:20
+ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:44:9-47:20
 	android:exported
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:45:13-37
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:46:13-37
 	android:name
-		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:44:13-41
+		ADDED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml:45:13-41
 uses-sdk
 INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Kuliah\Skripsi\Skripsi\app\src\main\AndroidManifest.xml
