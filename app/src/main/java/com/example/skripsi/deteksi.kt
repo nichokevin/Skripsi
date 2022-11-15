@@ -17,6 +17,7 @@ import android.speech.tts.TextToSpeech
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
@@ -181,6 +182,8 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deteksi)
+        val text= findViewById<TextView>(R.id.txtName)
+        text.setText(intent.extras?.get("KEY_NAME").toString())
         val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         tts = TextToSpeech(this, this)
 

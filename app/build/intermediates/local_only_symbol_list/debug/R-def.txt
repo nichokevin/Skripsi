@@ -33,6 +33,7 @@ id pose3
 id rect_overlay
 id text_view_id
 id titleApp
+id txtName
 id viewFinder
 layout action_bar_layout
 layout activity_detail
