@@ -1810,6 +1810,7 @@ id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
+id SplashScreenImage
 id TOP_END
 id TOP_START
 id accelerate
@@ -2326,6 +2327,7 @@ layout action_bar_layout
 layout activity_detail
 layout activity_deteksi
 layout activity_main
+layout activity_splash
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

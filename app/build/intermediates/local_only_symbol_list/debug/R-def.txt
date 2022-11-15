@@ -20,6 +20,7 @@ drawable tree
 id Gpose1
 id Gpose2
 id Gpose3
+id SplashScreenImage
 id card_view
 id card_view2
 id card_view3
@@ -39,6 +40,7 @@ layout action_bar_layout
 layout activity_detail
 layout activity_deteksi
 layout activity_main
+layout activity_splash
 layout toggle_style
 mipmap app
 mipmap app_foreground
