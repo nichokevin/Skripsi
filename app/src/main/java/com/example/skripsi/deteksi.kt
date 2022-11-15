@@ -4,17 +4,22 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.*
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
 import android.util.AttributeSet
 import android.util.Log
-import android.view.Surface
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -23,16 +28,17 @@ import androidx.core.content.ContextCompat
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.pose.Pose
 import com.google.mlkit.vision.pose.PoseDetection
-import com.google.mlkit.vision.pose.PoseDetector
 import com.google.mlkit.vision.pose.PoseLandmark
 import com.google.mlkit.vision.pose.accurate.AccuratePoseDetectorOptions
-import com.google.mlkit.vision.pose.defaults.PoseDetectorOptions
 import kotlinx.android.synthetic.main.activity_deteksi.*
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import kotlin.concurrent.schedule
 import kotlin.math.atan2
+
 private var drawColor = Color.GREEN
+
 
 private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : ImageAnalysis.Analyzer {
 
@@ -105,7 +111,8 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
 
     internal fun drawLine(
         startLandmark: PoseLandmark?,
-        endLandmark: PoseLandmark?
+        endLandmark: PoseLandmark?,
+        paint: Paint
     ) {
         val start = startLandmark!!.position
         val end = endLandmark!!.position
@@ -161,35 +168,46 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var tts: TextToSpeech? = null
 
     private lateinit var cameraExecutor: ExecutorService
-    private var cameraSelector: CameraSelector? = null
-    private lateinit var textView : TextView
     private var lensFacing = CameraSelector.LENS_FACING_BACK
+    private var bKanan=true
+    private var bKiri=true
+    private var tKanan=true
+    private var tKiri=true
+    private var kKanan=true
+    private var kKiri=true
+    private val handler = Handler()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deteksi)
-
+        val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         tts = TextToSpeech(this, this)
+
         // Request camera permissions
         if (allPermissionsGranted()) {
-            startCamera()
+            Timer().schedule(10000){
+                startCamera()
+            }
         } else {
             ActivityCompat.requestPermissions(
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         cameraSwitch.setOnClickListener {
+
             if (lensFacing == CameraSelector.LENS_FACING_FRONT) lensFacing = CameraSelector.LENS_FACING_BACK
             else if (lensFacing == CameraSelector.LENS_FACING_BACK) lensFacing = CameraSelector.LENS_FACING_FRONT
-            startCamera()
+            Timer().schedule(10000){
+                startCamera()
+            }
         }
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>, grantResults:
         IntArray) {
@@ -201,12 +219,16 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Toast.makeText(this,
                     "Permissions not granted by the user.",
                     Toast.LENGTH_SHORT).show()
+                ActivityCompat.requestPermissions(
+                    this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
                 finish()
             }
         }
     }
 
     fun getAngle(firstPoint: PoseLandmark, midPoint: PoseLandmark, lastPoint: PoseLandmark): Double {
+
+
 
         var result = Math.toDegrees(
             atan2( lastPoint.getPosition().y.toDouble() - midPoint.getPosition().y,
@@ -222,14 +244,14 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     fun getNeckAngle(
-        orecchio: PoseLandmark, spalla: PoseLandmark
+        ear: PoseLandmark, shoulder: PoseLandmark
     ): Double {
 
         var result = Math.toDegrees(
-            atan2( spalla.getPosition().y.toDouble() - spalla.getPosition().y,
-            (spalla.getPosition().x + 100 ).toDouble() - spalla.getPosition().x)
-                - atan2(orecchio.getPosition().y - spalla.getPosition().y,
-            orecchio.getPosition().x - spalla.getPosition().x)
+            atan2( shoulder.getPosition().y.toDouble() - shoulder.getPosition().y,
+            (shoulder.getPosition().x + 100 ).toDouble() - shoulder.getPosition().x)
+                - atan2(ear.getPosition().y - shoulder.getPosition().y,
+            ear.getPosition().x - shoulder.getPosition().x)
         )
 
         result = Math.abs(result) // Angle should never be negative
@@ -240,16 +262,87 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         return result
     }
 
-    private fun speakOut(text:String) {
-        Log.d("ttsresult","masuk")
-        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
-    }
-
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun onTextFound(pose: Pose)  {
         val namaPose = intent.extras?.get("KEY_NAME")
         Log.d("menerimadata",namaPose.toString())
+        var headLine = Paint()
+        headLine.color=Color.GREEN
+        headLine.isAntiAlias = true
+        // Dithering affects how colors with higher-precision than the device are down-sampled.
+        headLine.isDither = true
+        headLine.style = Paint.Style.STROKE // default: FILL
+        headLine.strokeJoin = Paint.Join.ROUND // default: MITER
+        headLine.strokeCap = Paint.Cap.ROUND // default: BUTT
+        headLine.strokeWidth = 3f
+
+        var lhandLine = Paint()
+        lhandLine.color=Color.GREEN
+        lhandLine.isAntiAlias = true
+        // Dithering affects how colors with higher-precision than the device are down-sampled.
+        lhandLine.isDither = true
+        lhandLine.style = Paint.Style.STROKE // default: FILL
+        lhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
+        lhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
+        lhandLine.strokeWidth = 3f
+
+        var rhandLine = Paint()
+        rhandLine.color=Color.GREEN
+        rhandLine.isAntiAlias = true
+        // Dithering affects how colors with higher-precision than the device are down-sampled.
+        rhandLine.isDither = true
+        rhandLine.style = Paint.Style.STROKE // default: FILL
+        rhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
+        rhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
+        rhandLine.strokeWidth = 3f
+
+        var lbodyLine = Paint()
+        lbodyLine.color=Color.GREEN
+        lbodyLine.isAntiAlias = true
+        // Dithering affects how colors with higher-precision than the device are down-sampled.
+        lbodyLine.isDither = true
+        lbodyLine.style = Paint.Style.STROKE // default: FILL
+        lbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
+        lbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
+        lbodyLine.strokeWidth = 3f
+
+        var rbodyLine = Paint()
+        rbodyLine.color=Color.GREEN
+        rbodyLine.color=Color.GREEN
+        rbodyLine.isAntiAlias = true
+        // Dithering affects how colors with higher-precision than the device are down-sampled.
+        rbodyLine.isDither = true
+        rbodyLine.style = Paint.Style.STROKE // default: FILL
+        rbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
+        rbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
+        rbodyLine.strokeWidth = 3f
+
+        var lfootLine = Paint()
+        lfootLine.color=Color.GREEN
+        lfootLine.color=Color.GREEN
+        lfootLine.color=Color.GREEN
+        lfootLine.isAntiAlias = true
+        // Dithering affects how colors with higher-precision than the device are down-sampled.
+        lfootLine.isDither = true
+        lfootLine.style = Paint.Style.STROKE // default: FILL
+        lfootLine.strokeJoin = Paint.Join.ROUND // default: MITER
+        lfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
+        lfootLine.strokeWidth = 3f
+
+        var rfootLine = Paint()
+        rfootLine.color=Color.GREEN
+        rfootLine.color=Color.GREEN
+        rfootLine.color=Color.GREEN
+        rfootLine.isAntiAlias = true
+        // Dithering affects how colors with higher-precision than the device are down-sampled.
+        rfootLine.isDither = true
+        rfootLine.style = Paint.Style.STROKE // default: FILL
+        rfootLine.strokeJoin = Paint.Join.ROUND // default: MITER
+        rfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
+        rfootLine.strokeWidth = 3f
 
         try {
+
             val leftShoulder = pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER)
             val rightShoulder = pose.getPoseLandmark(PoseLandmark.RIGHT_SHOULDER)
             val leftElbow = pose.getPoseLandmark(PoseLandmark.LEFT_ELBOW)
@@ -290,13 +383,13 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             // menggambar leher yang terlihat menyamping dari kiri
             if(leftEar != null && leftShoulder != null){
-                rect_overlay.drawLine(leftEar, leftShoulder)
+                rect_overlay.drawLine(leftEar, leftShoulder,headLine)
                 val sudutLeher = getNeckAngle(leftEar, leftShoulder)
             }
 
             // Menggambar leher yang terlihat menyamping dari kanan
             if(rightEar != null && rightShoulder != null){
-                rect_overlay.drawLine(rightEar, rightShoulder)
+                rect_overlay.drawLine(rightEar, rightShoulder, headLine)
                 val sudutLeher = getNeckAngle(rightEar, rightShoulder)
             }
 
@@ -305,35 +398,72 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 val sudutBK = getAngle(rightShoulder, rightHip, rightKnee)
                 Log.d("sudutbkk", sudutBK.toInt().toString())
                 if (namaPose=="Pose Plank"){
-
+                    if(sudutBK in 174.0..179.0){
+                        Log.d("cekposebkk","benar")
+                        rbodyLine.color=Color.GREEN
+                        bKanan=true
+                    }else{
+                        Log.d("cekposebkk","salah")
+                        rbodyLine.color=Color.RED
+                        bKanan=false
+                    }
                 }else if(namaPose=="Pose Tree"){
                     if(sudutBK in 171.0..177.0){
                         Log.d("cekposebkk","benar")
+                        rbodyLine.color=Color.GREEN
+                        bKanan=true
                     }else{
                         Log.d("cekposebkk","salah")
-                        val text = "wrong"
-                        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
+                        rbodyLine.color=Color.RED
+                        bKanan=false
                     }
                 }else if(namaPose=="Pose Cobra"){
-
+                    if(sudutBK in 126.0..133.0){
+                        Log.d("cekposebkk","benar")
+                        lbodyLine.color=Color.GREEN
+                        bKiri=true
+                    }else{
+                        Log.d("cekposebkk","salah")
+                        lbodyLine.color=Color.RED
+                        bKiri=false
+                    }
                 }
             }
 
-            // pojok kaki kiri
+            // badan kiri
             if(leftShoulder != null && leftHip != null && leftKnee != null){
                 val sudutBKR = getAngle(leftShoulder, leftHip, leftKnee)
                 Log.d("sudutbkr", sudutBKR.toInt().toString())
                 if (namaPose=="Pose Plank"){
-
+                    if(sudutBKR in 171.0..175.0){
+                        Log.d("cekposebkr","benar")
+                        lbodyLine.color=Color.GREEN
+                        bKiri=true
+                    }else{
+                        Log.d("cekposebkr","salah")
+                        lbodyLine.color=Color.RED
+                        bKiri=false
+                    }
                 }else if(namaPose=="Pose Tree"){
                     if(sudutBKR in 121.0..127.0){
                         Log.d("cekposebkr","benar")
+                        lbodyLine.color=Color.GREEN
+                        bKiri=true
                     }else{
                         Log.d("cekposebkr","salah")
-                        drawColor=Color.RED
+                        lbodyLine.color=Color.RED
+                        bKiri=false
                     }
                 }else if(namaPose=="Pose Cobra"){
-
+                    if(sudutBKR in 140.0..149.0){
+                        Log.d("cekposebkr","benar")
+                        lbodyLine.color=Color.GREEN
+                        bKiri=true
+                    }else{
+                        Log.d("cekposebkr","salah")
+                        lbodyLine.color=Color.RED
+                        bKiri=false
+                    }
                 }
             }
 
@@ -342,15 +472,35 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 val sudutKanan = getAngle(rightShoulder, rightElbow, rightWrist)
                 Log.d("suduttangankanan", sudutKanan.toInt().toString())
                 if (namaPose=="Pose Plank"){
-
+                    if(sudutKanan in 86.0..93.0){
+                        Log.d("cekposetk","benar")
+                        rhandLine.color=Color.GREEN
+                        tKanan=true
+                    }else{
+                        Log.d("cekposetk","salah")
+                        rhandLine.color=Color.RED
+                        tKanan=false
+                    }
                 }else if(namaPose=="Pose Tree"){
                     if(sudutKanan in 48.0..56.0){
                         Log.d("cekposetk","benar")
+                        rhandLine.color=Color.GREEN
+                        tKanan=true
                     }else{
                         Log.d("cekposetk","salah")
+                        rhandLine.color=Color.RED
+                        tKanan=false
                     }
                 }else if(namaPose=="Pose Cobra"){
-
+                    if(sudutKanan in 166.0..176.0){
+                        Log.d("cekposetk","benar")
+                        rhandLine.color=Color.GREEN
+                        tKanan=true
+                    }else{
+                        Log.d("cekposetk","salah")
+                        rhandLine.color=Color.RED
+                        tKanan=false
+                    }
                 }
             }
 
@@ -359,126 +509,228 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 val sudutKiri = getAngle(leftShoulder, leftElbow, leftWrist)
                 Log.d("suduttangankiri", sudutKiri.toInt().toString())
                 if (namaPose=="Pose Plank"){
-
-                }else if(namaPose=="Pose Tree"){
-                    if(sudutKiri in 48.0..56.0){
-                        Log.d("cekpose","benar")
+                    if(sudutKiri in 79.0..85.0){
+                        Log.d("cekposetr","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
                     }else{
-                        Log.d("cekpose","salah")
-                        drawColor=Color.RED
+                        Log.d("cekposetr","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
+                }else if(namaPose=="Pose Tree"){
+                    if(sudutKiri in 45.0..54.0){
+                        Log.d("cekposetr","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposetr","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
                     }
                 }else if(namaPose=="Pose Cobra"){
-
+                    if(sudutKiri in 150.0..168.0){
+                        Log.d("cekposetr","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposetr","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
                 }
             }
 
             // sudut kaki kanan
-            if( rightHip != null && rightKnee != null  && rightAnkle != null){
-                val angoloBusto = getAngle( rightHip, rightKnee, rightAnkle)
-                Log.d("sudutkakikanan", "${ 180 - angoloBusto.toInt()}")
+            if( rightAnkle != null && rightKnee != null  && rightFootIndex != null){
+                val kakiKanan = getAngle( rightKnee, rightAnkle, rightFootIndex)
+                Log.d("sudutkakikanan", kakiKanan.toInt().toString())
+                if (namaPose=="Pose Plank"){
+                    if(kakiKanan in 97.0..105.0){
+                        Log.d("cekposekk","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposekk","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
+                }else if(namaPose=="Pose Tree"){
+                    if(kakiKanan in 168.0..174.0){
+                        Log.d("cekposekk","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposekk","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
+                }else if(namaPose=="Pose Cobra"){
+                    if(kakiKanan in 163.0..170.0){
+                        Log.d("cekposekk","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposekk","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
+                }
             }
 
             // sudut kaki kiri
-            if( leftHip != null && leftKnee != null  && leftAnkle != null){
-                val angoloBusto = getAngle( leftHip, leftKnee,leftAnkle)
-                Log.d("sudutkakikiri", "${ 180 - angoloBusto.toInt()}")
+            if( leftAnkle != null && leftKnee != null  && leftFootIndex != null){
+                val kakiKiri = getAngle( leftKnee, leftAnkle, leftFootIndex)
+                Log.d("sudutkakikiri", kakiKiri.toInt().toString())
+                if (namaPose=="Pose Plank"){
+                    if(kakiKiri in 102.0..108.0){
+                        Log.d("cekposekr","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposekr","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
+                }else if(namaPose=="Pose Tree"){
+                    if(kakiKiri in 104.0..110.0){
+                        Log.d("cekposekr","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposekr","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
+                }else if(namaPose=="Pose Cobra"){
+                    if(kakiKiri in 159.0..166.0){
+                        Log.d("cekposekr","benar")
+                        lhandLine.color=Color.GREEN
+                        tKiri=true
+                    }else{
+                        Log.d("cekposekr","salah")
+                        lhandLine.color=Color.RED
+                        tKiri=false
+                    }
+                }
             }
 
+            if(!tKanan || !tKiri){
+                val text = "incorrect arm position"
+                val delayMs = 2000
+                handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
+                    delayMs.toLong()
+                )
+            }else if(!bKanan||!bKiri){
+                val text = "incorrect body position"
+                val delayMs = 2000
+                handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
+                    delayMs.toLong()
+                )
+            }else if(!kKanan||!kKiri){
+                val text = "incorrect foot position"
+                val delayMs = 2000
+                handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
+                    delayMs.toLong()
+                )
+            }else{
+                tts!!.stop()
+            }
 
             if(leftShoulder != null && rightShoulder != null){
-                rect_overlay.drawLine(leftShoulder, rightShoulder)
+                rect_overlay.drawLine(leftShoulder, rightShoulder, headLine)
             }
 
             if(leftHip != null &&  rightHip != null){
-                rect_overlay.drawLine(leftHip, rightHip)
+                rect_overlay.drawLine(leftHip, rightHip, headLine)
             }
 
             if(leftShoulder != null &&  leftElbow != null){
-                rect_overlay.drawLine(leftShoulder, leftElbow)
+                rect_overlay.drawLine(leftShoulder, leftElbow,lhandLine)
             }
 
             if(leftElbow != null &&  leftWrist != null){
-                rect_overlay.drawLine(leftElbow, leftWrist)
+                rect_overlay.drawLine(leftElbow, leftWrist,lhandLine)
             }
 
             if(leftShoulder != null &&  leftHip != null){
-                rect_overlay.drawLine(leftShoulder, leftHip)
+                rect_overlay.drawLine(leftShoulder, leftHip,lbodyLine)
             }
 
             if(leftHip != null &&  leftKnee != null){
-                rect_overlay.drawLine(leftHip, leftKnee)
+                rect_overlay.drawLine(leftHip, leftKnee,lbodyLine)
             }
 
             if(leftKnee != null &&  leftAnkle != null){
-                rect_overlay.drawLine(leftKnee, leftAnkle)
+                rect_overlay.drawLine(leftKnee, leftAnkle,lfootLine)
             }
 
             if(leftWrist != null &&  leftThumb != null){
-                rect_overlay.drawLine(leftWrist, leftThumb)
+                rect_overlay.drawLine(leftWrist, leftThumb,headLine)
             }
 
             if(leftWrist != null &&  leftPinky != null){
-                rect_overlay.drawLine(leftWrist, leftPinky)
+                rect_overlay.drawLine(leftWrist, leftPinky,headLine)
             }
 
             if(leftWrist != null &&  leftIndex != null){
-                rect_overlay.drawLine(leftWrist, leftIndex)
+                rect_overlay.drawLine(leftWrist, leftIndex,headLine)
             }
 
             if(leftIndex != null &&  leftPinky != null){
-                rect_overlay.drawLine(leftIndex, leftPinky)
+                rect_overlay.drawLine(leftIndex, leftPinky,headLine)
             }
 
             if(leftAnkle != null &&  leftHeel != null){
-                rect_overlay.drawLine(leftAnkle, leftHeel)
+                rect_overlay.drawLine(leftAnkle, leftHeel,lfootLine)
             }
 
             if(leftHeel != null &&  leftFootIndex != null){
-                rect_overlay.drawLine(leftHeel, leftFootIndex)
+                rect_overlay.drawLine(leftHeel, leftFootIndex,headLine)
             }
 
             if(rightShoulder != null &&  rightElbow != null){
-                rect_overlay.drawLine(rightShoulder, rightElbow)
+                rect_overlay.drawLine(rightShoulder, rightElbow,rhandLine)
             }
 
             if(rightElbow != null &&  rightWrist != null){
-                rect_overlay.drawLine(rightElbow, rightWrist)
+                rect_overlay.drawLine(rightElbow, rightWrist,rhandLine)
             }
 
             if(rightShoulder != null &&  rightHip != null){
-                rect_overlay.drawLine(rightShoulder, rightHip)
+                rect_overlay.drawLine(rightShoulder, rightHip,rbodyLine)
             }
 
             if(rightHip != null &&  rightKnee != null){
-                rect_overlay.drawLine(rightHip, rightKnee)
+                rect_overlay.drawLine(rightHip, rightKnee,rbodyLine)
             }
 
             if(rightKnee != null &&  rightAnkle != null){
-                rect_overlay.drawLine(rightKnee, rightAnkle)
+                rect_overlay.drawLine(rightKnee, rightAnkle,rfootLine)
             }
 
             if(rightWrist != null &&  rightThumb != null){
-                rect_overlay.drawLine(rightWrist, rightThumb)
+                rect_overlay.drawLine(rightWrist, rightThumb,headLine)
             }
 
             if(rightWrist != null &&  rightPinky != null){
-                rect_overlay.drawLine(rightWrist, rightPinky)
+                rect_overlay.drawLine(rightWrist, rightPinky,headLine)
             }
 
             if(rightWrist != null &&  rightIndex != null){
-                rect_overlay.drawLine(rightWrist, rightIndex)
+                rect_overlay.drawLine(rightWrist, rightIndex,headLine)
             }
 
             if(rightIndex != null &&  rightPinky != null){
-                rect_overlay.drawLine(rightIndex, rightPinky)
+                rect_overlay.drawLine(rightIndex, rightPinky,headLine)
             }
 
             if(rightAnkle != null &&  rightHeel != null){
-                rect_overlay.drawLine(rightAnkle, rightHeel)
+                rect_overlay.drawLine(rightAnkle, rightHeel,headLine)
             }
 
             if(rightHeel != null &&  rightFootIndex != null){
-                rect_overlay.drawLine(rightHeel, rightFootIndex)
+                rect_overlay.drawLine(rightHeel, rightFootIndex,headLine)
             }
 
 
@@ -487,6 +739,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         Log.d("kamera",lensFacing.toString())
@@ -568,6 +821,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
+        tts!!.shutdown()
     }
 
     companion object {
@@ -582,7 +836,6 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("ttsresult","The Language not supported!")
-            } else {
             }
         }else{
             Log.e("ttsresult","Initilization Failed!")

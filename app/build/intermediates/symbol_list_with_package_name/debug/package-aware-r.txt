@@ -1011,6 +1011,7 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color app_background
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1088,6 +1089,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1709,6 +1711,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable backarrow
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1753,6 +1756,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable iconyoga
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -2409,6 +2413,9 @@ layout text_view_without_line_height
 layout toggle_style
 menu example_menu
 menu example_menu2
+mipmap app
+mipmap app_foreground
+mipmap app_round
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -2536,22 +2543,6 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string plank
-string pref_category_key_camera
-string pref_category_title_camera
-string pref_key_camera_live_viewport
-string pref_key_camerax_front_camera_target_resolution
-string pref_key_camerax_rear_camera_target_resolution
-string pref_key_front_camera_picture_size
-string pref_key_front_camera_preview_size
-string pref_key_rear_camera_picture_size
-string pref_key_rear_camera_preview_size
-string pref_screen
-string pref_summary_camera_live_viewport
-string pref_title_camera_live_viewport
-string pref_title_camerax_front_camera_target_resolution
-string pref_title_camerax_rear_camera_target_resolution
-string pref_title_front_camera_preview_size
-string pref_title_rear_camera_preview_size
 string search_menu_title
 string status_bar_notification_info_overflow
 string tree
