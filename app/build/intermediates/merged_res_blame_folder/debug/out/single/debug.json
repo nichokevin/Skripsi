@@ -136,6 +136,14 @@
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\layout\\action_bar_layout.xml"
     },
     {
+        "merged": "com.example.skripsi.app-merged_res-33:/layout_action_bar_layout.xml.flat",
+        "source": "com.example.skripsi.app-main-35:/layout/action_bar_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\drawable-v24_question.png.flat",
+        "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-main-35:\\drawable-v24\\question.png"
+    },
+    {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\mipmap-xxhdpi_app_foreground.png.flat",
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-debug-34:\\mipmap-xxhdpi\\app_foreground.png"
     },
@@ -186,10 +194,6 @@
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\mipmap-xhdpi_app_round.png.flat",
         "source": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-debug-34:\\mipmap-xhdpi\\app_round.png"
-    },
-    {
-        "merged": "com.example.skripsi.app-merged_res-33:/layout_activity_detail.xml.flat",
-        "source": "com.example.skripsi.app-main-35:/layout/activity_detail.xml"
     },
     {
         "merged": "C:\\Users\\nicho\\.gradle\\daemon\\7.3.3\\com.example.skripsi.app-merged_res-33:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",

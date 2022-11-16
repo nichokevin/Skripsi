@@ -18,12 +18,14 @@ drawable ic_launcher_foreground
 drawable iconyoga
 drawable plank
 drawable poseplank
+drawable question
 drawable tree
 drawable treeani
 id Gpose1
 id Gpose2
 id Gpose3
 id SplashScreenImage
+id btnHelp
 id card_view
 id card_view2
 id card_view3

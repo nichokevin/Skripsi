@@ -72,20 +72,6 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
     View(context, attributeSet) {
     private lateinit var extraCanvas: Canvas
     private lateinit var extraBitmap: Bitmap
-    private val STROKE_WIDTH = 5f // has to be float
-
-    // Set up the paint with which to draw.
-    private val paint = Paint().apply {
-        color = drawColor
-        // Smooths out edges of what is drawn without affecting shape.
-        isAntiAlias = true
-        // Dithering affects how colors with higher-precision than the device are down-sampled.
-        isDither = true
-        style = Paint.Style.STROKE // default: FILL
-        strokeJoin = Paint.Join.ROUND // default: MITER
-        strokeCap = Paint.Cap.ROUND // default: BUTT
-        strokeWidth = STROKE_WIDTH // default: Hairline-width (really thin)
-    }
 
     override fun onSizeChanged(width: Int, height: Int, oldWidth: Int, oldHeight: Int) {
         super.onSizeChanged(width, height, oldWidth, oldHeight)
@@ -126,7 +112,8 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
         _mataKiri: PoseLandmark?,
         _mataKanan: PoseLandmark?,
         _bahuKiri: PoseLandmark?,
-        _bahuKanan: PoseLandmark?
+        _bahuKanan: PoseLandmark?,
+        paint:Paint
     ) {
 
         val xmul = 3.3f
@@ -139,14 +126,14 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
         val bahuKanan = _bahuKanan!!.position
 
 
-        val fineColloX =  mataKanan.x +  ((mataKiri.x - mataKanan.x) / 2)
-        val fineColloY = mataKanan.y + ((mataKiri.y - mataKanan.y) / 2)
+        val endNeckX =  mataKanan.x +  ((mataKiri.x - mataKanan.x) / 2)
+        val endNeckY = mataKanan.y + ((mataKiri.y - mataKanan.y) / 2)
 
-        val inizioColloX = bahuKanan.x + ((bahuKiri.x - bahuKanan.x ) / 2)
-        val inizioColloY = bahuKanan.y + ((bahuKiri.y - bahuKanan.y) / 2)
+        val startNeckX = bahuKanan.x + ((bahuKiri.x - bahuKanan.x ) / 2)
+        val startNeckY = bahuKanan.y + ((bahuKiri.y - bahuKanan.y) / 2)
 
         extraCanvas.drawLine(
-            (fineColloX * xmul) - 250, fineColloY* ymul, (inizioColloX* xmul) -250, inizioColloY* ymul, paint
+            (endNeckX * xmul) - 250, endNeckY* ymul, (startNeckX* xmul) -250, startNeckY* ymul, paint
         )
 
         extraCanvas.drawLine(
@@ -235,25 +222,6 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         return result
     }
 
-    fun getNeckAngle(
-        ear: PoseLandmark, shoulder: PoseLandmark
-    ): Double {
-
-        var result = Math.toDegrees(
-            atan2( shoulder.getPosition().y.toDouble() - shoulder.getPosition().y,
-            (shoulder.getPosition().x + 100 ).toDouble() - shoulder.getPosition().x)
-                - atan2(ear.getPosition().y - shoulder.getPosition().y,
-            ear.getPosition().x - shoulder.getPosition().x)
-        )
-
-        result = Math.abs(result) // Angle should never be negative
-
-        if (result > 180) {
-            result = 360.0 - result // Always get the acute representation of the angle
-        }
-        return result
-    }
-
     private fun onTextFound(pose: Pose)  {
         val namaPose = intent.extras?.get("KEY_NAME")
         val arahPose = intent.extras?.get("arah")
@@ -301,6 +269,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         var rbodyLine = Paint()
         rbodyLine.color=Color.GREEN
         rbodyLine.color=Color.GREEN
+        // Smooths out edges of what is drawn without affecting shape
         rbodyLine.isAntiAlias = true
         // Dithering affects how colors with higher-precision than the device are down-sampled.
         rbodyLine.isDither = true
@@ -369,19 +338,17 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             // menggambar leher sebagai rata-rata antara mata dan telinga
             if( leftEye != null && rightEye != null && leftShoulder != null && rightShoulder != null  ){
-                rect_overlay.drawNeck(leftEye, rightEye, leftShoulder, rightShoulder)
+                rect_overlay.drawNeck(leftEye, rightEye, leftShoulder, rightShoulder,headLine)
             }
 
             // menggambar leher yang terlihat menyamping dari kiri
             if(leftEar != null && leftShoulder != null){
                 rect_overlay.drawLine(leftEar, leftShoulder,headLine)
-                val sudutLeher = getNeckAngle(leftEar, leftShoulder)
             }
 
             // Menggambar leher yang terlihat menyamping dari kanan
             if(rightEar != null && rightShoulder != null){
                 rect_overlay.drawLine(rightEar, rightShoulder, headLine)
-                val sudutLeher = getNeckAngle(rightEar, rightShoulder)
             }
 
             // badan kanan

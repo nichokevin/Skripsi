@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import com.example.skripsi.databaseLokal.DBHelper
+import kotlinx.android.synthetic.main.action_bar_layout.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +43,18 @@ class MainActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(
             this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
         )
+
+        btnHelp.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(this)
+
+            alertDialog.apply {
+                setTitle("Petunjuk penggunaan aplikasi")
+                setMessage("Touch 1 kali -> halaman deteksi\n Long tap -> halaman detail")
+                setPositiveButton("Ok") { _: DialogInterface?, _: Int ->
+                }
+            }.create().show()
+        }
+
         val cekTema = isUsingNightModeResources()
         if (cekTema==true){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
