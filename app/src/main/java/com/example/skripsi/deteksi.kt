@@ -6,7 +6,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.*
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.speech.tts.TextToSpeech
@@ -16,7 +15,6 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -74,7 +72,7 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
     View(context, attributeSet) {
     private lateinit var extraCanvas: Canvas
     private lateinit var extraBitmap: Bitmap
-    private val STROKE_WIDTH = 3f // has to be float
+    private val STROKE_WIDTH = 5f // has to be float
 
     // Set up the paint with which to draw.
     private val paint = Paint().apply {
@@ -183,7 +181,9 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts = TextToSpeech(this, this)
 
         if (allPermissionsGranted()) {
-            startCamera()
+            Timer().schedule(10000) {
+                startCamera()
+            }
 
         } else {
             ActivityCompat.requestPermissions(
@@ -266,7 +266,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         headLine.style = Paint.Style.STROKE // default: FILL
         headLine.strokeJoin = Paint.Join.ROUND // default: MITER
         headLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        headLine.strokeWidth = 10f
+        headLine.strokeWidth = 20f
 
         var lhandLine = Paint()
         lhandLine.color=Color.GREEN
@@ -276,7 +276,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lhandLine.style = Paint.Style.STROKE // default: FILL
         lhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lhandLine.strokeWidth = 10f
+        lhandLine.strokeWidth = 20f
 
         var rhandLine = Paint()
         rhandLine.color=Color.GREEN
@@ -286,7 +286,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rhandLine.style = Paint.Style.STROKE // default: FILL
         rhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rhandLine.strokeWidth = 10f
+        rhandLine.strokeWidth = 20f
 
         var lbodyLine = Paint()
         lbodyLine.color=Color.GREEN
@@ -296,7 +296,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lbodyLine.style = Paint.Style.STROKE // default: FILL
         lbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lbodyLine.strokeWidth = 10f
+        lbodyLine.strokeWidth = 20f
 
         var rbodyLine = Paint()
         rbodyLine.color=Color.GREEN
@@ -307,7 +307,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rbodyLine.style = Paint.Style.STROKE // default: FILL
         rbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rbodyLine.strokeWidth = 10f
+        rbodyLine.strokeWidth = 20f
 
         var lfootLine = Paint()
         lfootLine.color=Color.GREEN
@@ -331,7 +331,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rfootLine.style = Paint.Style.STROKE // default: FILL
         rfootLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rfootLine.strokeWidth = 10f
+        rfootLine.strokeWidth = 20f
 
         try {
 
@@ -390,7 +390,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutbkk", sudutBK.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kanan"){
-                        if(sudutBK in 174.0..179.0){
+                        if(sudutBK in 167.0..180.0){
                             Log.d("cekposebkk","benar")
                             rbodyLine.color=Color.GREEN
                             bKanan=true
@@ -437,7 +437,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutbkr", sudutBKR.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(sudutBKR in 171.0..175.0){
+                        if(sudutBKR in 167.0..180.0){
                             Log.d("cekposebkr","benar")
                             lbodyLine.color=Color.GREEN
                             bKiri=true
@@ -484,7 +484,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("suduttangankanan", sudutKanan.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kanan"){
-                        if(sudutKanan in 86.0..93.0){
+                        if(sudutKanan in 70.0..95.0){
                             Log.d("cekposetk","benar")
                             rhandLine.color=Color.GREEN
                             tKanan=true
@@ -510,7 +510,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kanan"){
-                        if(sudutKanan in 158.0..168.0){
+                        if(sudutKanan in 158.0..175.0){
                             Log.d("cekposetk","benar")
                             rhandLine.color=Color.GREEN
                             tKanan=true
@@ -532,7 +532,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("suduttangankiri", sudutKiri.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(sudutKiri in 79.0..85.0){
+                        if(sudutKiri in 70.0..95.0){
                             Log.d("cekposetr","benar")
                             lhandLine.color=Color.GREEN
                             tKiri=true
@@ -557,7 +557,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kiri"){
-                        if(sudutKiri in 150.0..168.0){
+                        if(sudutKiri in 158.0..175.0){
                             Log.d("cekposetr","benar")
                             lhandLine.color=Color.GREEN
                             tKiri=true
@@ -579,7 +579,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutkakikanan", kakiKanan.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kanan"){
-                        if(kakiKanan in 97.0..105.0){
+                        if(kakiKanan in 95.0..120.0){
                             Log.d("cekposekk","benar")
                             rfootLine.color=Color.GREEN
                             kKanan=true
@@ -593,18 +593,12 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         kKanan=true
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(kakiKanan in 168.0..175.0||kakiKanan in 107.0..120.0){
-                        Log.d("cekposekk","benar")
-                        rfootLine.color=Color.GREEN
-                        kKanan=true
-                    }else{
-                        Log.d("cekposekk","salah")
-                        rfootLine.color=Color.RED
-                        kKanan=false
-                    }
+                    rfootLine.color=Color.GREEN
+                    kKanan=true
+
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kanan"){
-                        if(kakiKanan in 163.0..170.0){
+                        if(kakiKanan in 145.0..170.0){
                             Log.d("cekposekk","benar")
                             rfootLine.color=Color.GREEN
                             kKanan=true
@@ -626,7 +620,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutkakikiri", kakiKiri.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(kakiKiri in 102.0..108.0){
+                        if(kakiKiri in 95.0..120.0){
                             Log.d("cekposekr","benar")
                             lfootLine.color=Color.GREEN
                             kKiri=true
@@ -640,18 +634,12 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         kKiri=true
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(kakiKiri in 107.0..120.0||kakiKiri in 168.0..175.0){
-                        Log.d("cekposekr","benar")
-                        lfootLine.color=Color.GREEN
-                        kKiri=true
-                    }else{
-                        Log.d("cekposekr","salah")
-                        lfootLine.color=Color.RED
-                        kKiri=false
-                    }
+                    lfootLine.color=Color.GREEN
+                    kKiri=true
+
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kiri"){
-                        if(kakiKiri in 159.0..166.0){
+                        if(kakiKiri in 145.0..170.0){
                             Log.d("cekposekr","benar")
                             lfootLine.color=Color.GREEN
                             kKiri=true

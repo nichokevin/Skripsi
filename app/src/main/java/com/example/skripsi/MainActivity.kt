@@ -68,11 +68,10 @@ class MainActivity : AppCompatActivity() {
 
         card.setOnLongClickListener {
             val name = NamaPose
-            val des =  "Plank merupakan salah satu gerakan olahraga yang cukup mudah dilakukan. Meski demikian, " +
+            val des =  "    Plank merupakan salah satu gerakan olahraga yang cukup mudah dilakukan. Meski demikian, " +
                     "memahami gerakan dan manfaat plank penting dilakukan sebelum melakukan gerakan ini agar Anda " +
                     "terhindar dari cedera.\n" +
-                    "\n" +
-                    "Gerakan plank hampir mirip dengan push-up tetapi menggunakan lengan bawah sebagai tumpuan. " +
+                    "    Gerakan plank hampir mirip dengan push-up tetapi menggunakan lengan bawah sebagai tumpuan. " +
                     "Latihan ini sangat efektif untuk memperkuat seluruh otot tubuh, terutama otot-otot perut serta bagian inti tubuh."
             val temp = db.getByName(name)
             if (temp != null) {
@@ -101,10 +100,10 @@ class MainActivity : AppCompatActivity() {
         }
         card2.setOnLongClickListener {
             val name = NamaPose2
-            val des =  "Tree pose merupakan pose keseimbangan berdiri pertama yang umumnya " +
+            val des =  "    Tree pose merupakan pose keseimbangan berdiri pertama yang umumnya " +
                     "diajarkan kepada pemula karena cukup sederhana. Pose ini menargetkan kaki (paha, betis, " +
                     "pergelangan kaki), otot inti (core), dan keseimbangan yang dilakukan dengan berdiri satu kaki. " +
-                    "Selain memperkuat kaki dan otot inti, pose ini juga akan melatih anggota tubuh lain seperti paha " +
+                    "\n    Selain memperkuat kaki dan otot inti, pose ini juga akan melatih anggota tubuh lain seperti paha " +
                     "bagian dalam, dada, hingga bahu. Pose ini pun dapat membantu dalam meredakan linu di bagian pinggul."
             val temp = db.getByName(name)
             if (temp != null) {
@@ -134,9 +133,9 @@ class MainActivity : AppCompatActivity() {
 
         card3.setOnLongClickListener {
             val name = NamaPose3
-            val des =  "Postur kobra (bhujangasana) adalah postur melengkungkan punggung ke " +
+            val des =  "    Postur kobra (bhujangasana) adalah postur melengkungkan punggung ke " +
                     "belakang yang dilakukan dengan meregangkan otot dada, lengan, dan bahu. Postur ini " +
-                    "sangat baik untuk meningkatkan kelenturan tulang belakang dan mengurangi nyeri punggung. Bergerak " +
+                    "sangat baik untuk meningkatkan kelenturan tulang belakang dan mengurangi nyeri punggung. \n    Bergerak " +
                     "dengan pose ini sangat membantu untuk melawan postur membungkuk dan bentuk tubuh yang membulat. Postur " +
                     "yang tidak baik ini dialami oleh banyak orang, khususnya para pekerja kantoran yang sebagian besar " +
                     "waktunya dihabiskan dengan duduk di depan komputer."
