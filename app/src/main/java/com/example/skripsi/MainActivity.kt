@@ -8,7 +8,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
@@ -20,6 +19,7 @@ import com.example.skripsi.databaseLokal.DBHelper
 import kotlinx.android.synthetic.main.action_bar_layout.*
 
 
+@Suppress("NAME_SHADOWING")
 class MainActivity : AppCompatActivity() {
 
     private fun isUsingNightModeResources(): Boolean {

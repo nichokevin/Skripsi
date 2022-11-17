@@ -32,9 +32,6 @@ import java.util.concurrent.Executors
 import kotlin.concurrent.schedule
 import kotlin.math.atan2
 
-private var drawColor = Color.GREEN
-
-
 private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : ImageAnalysis.Analyzer {
 
     private val options = AccuratePoseDetectorOptions.Builder()
@@ -145,6 +142,7 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
 
 }
 
+@Suppress("DEPRECATION")
 class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var imageCapture: ImageCapture? = null
     private var tts: TextToSpeech? = null
@@ -226,7 +224,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         val namaPose = intent.extras?.get("KEY_NAME")
         val arahPose = intent.extras?.get("arah")
         Log.d("menerimadata",arahPose.toString())
-        var headLine = Paint()
+        val headLine = Paint()
         headLine.color=Color.GREEN
         headLine.isAntiAlias = true
         // Dithering affects how colors with higher-precision than the device are down-sampled.
@@ -236,7 +234,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         headLine.strokeCap = Paint.Cap.ROUND // default: BUTT
         headLine.strokeWidth = 20f
 
-        var lhandLine = Paint()
+        val lhandLine = Paint()
         lhandLine.color=Color.GREEN
         lhandLine.isAntiAlias = true
         // Dithering affects how colors with higher-precision than the device are down-sampled.
@@ -246,7 +244,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
         lhandLine.strokeWidth = 20f
 
-        var rhandLine = Paint()
+        val rhandLine = Paint()
         rhandLine.color=Color.GREEN
         rhandLine.isAntiAlias = true
         // Dithering affects how colors with higher-precision than the device are down-sampled.
@@ -256,7 +254,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
         rhandLine.strokeWidth = 20f
 
-        var lbodyLine = Paint()
+        val lbodyLine = Paint()
         lbodyLine.color=Color.GREEN
         lbodyLine.isAntiAlias = true
         // Dithering affects how colors with higher-precision than the device are down-sampled.
@@ -266,7 +264,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
         lbodyLine.strokeWidth = 20f
 
-        var rbodyLine = Paint()
+        val rbodyLine = Paint()
         rbodyLine.color=Color.GREEN
         rbodyLine.color=Color.GREEN
         // Smooths out edges of what is drawn without affecting shape
@@ -278,7 +276,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
         rbodyLine.strokeWidth = 20f
 
-        var lfootLine = Paint()
+        val lfootLine = Paint()
         lfootLine.color=Color.GREEN
         lfootLine.color=Color.GREEN
         lfootLine.color=Color.GREEN
@@ -290,7 +288,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
         lfootLine.strokeWidth = 10f
 
-        var rfootLine = Paint()
+        val rfootLine = Paint()
         rfootLine.color=Color.GREEN
         rfootLine.color=Color.GREEN
         rfootLine.color=Color.GREEN
@@ -625,19 +623,22 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
             if(!tKanan || !tKiri){
                 val text = "incorrect arm position"
                 val delayMs = 2000
-                handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
+                handler.postDelayed(
+                    { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
                     delayMs.toLong()
                 )
             }else if(!bKanan||!bKiri){
                 val text = "incorrect body position"
                 val delayMs = 2000
-                handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
+                handler.postDelayed(
+                    { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
                     delayMs.toLong()
                 )
             }else if(!kKanan||!kKiri){
                 val text = "incorrect foot position"
                 val delayMs = 2000
-                handler.postDelayed(Runnable { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
+                handler.postDelayed(
+                    { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
                     delayMs.toLong()
                 )
             }else{

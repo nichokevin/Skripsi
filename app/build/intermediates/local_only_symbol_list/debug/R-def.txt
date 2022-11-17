@@ -42,6 +42,7 @@ id text_view_id
 id titleApp
 id txtName
 id viewFinder
+layout acbar
 layout action_bar_layout
 layout activity_detail
 layout activity_deteksi

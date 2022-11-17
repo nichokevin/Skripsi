@@ -35,7 +35,8 @@
                 android:layout_width="360dp"
                 android:layout_height="179dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/plank" />
+                android:src="@drawable/plank"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/pose1"
@@ -75,7 +76,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/tree" />
+                android:src="@drawable/tree"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/pose2"
@@ -115,7 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="195dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/cobra" />
+                android:src="@drawable/cobra"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/pose3"

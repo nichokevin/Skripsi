@@ -3,7 +3,6 @@ package com.example.skripsi
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -51,7 +50,7 @@ class detail : AppCompatActivity() {
         val actionBar = getSupportActionBar()
 
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
-        supportActionBar?.setCustomView(R.layout.action_bar_layout);
+        supportActionBar?.setCustomView(R.layout.acbar);
         actionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
