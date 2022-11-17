@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.skripsi.app-mergeDebugResources-31:/values-es/values-es.xml",
+            "outputFile": "com.example.skripsi.app-mergeDebugResources-38:/values-es/values-es.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nicho\\.gradle\\caches\\transforms-3\\1b9d82424556447479e62f5f6c892176\\transformed\\jetified-play-services-base-18.1.0\\res\\values-es\\values.xml",

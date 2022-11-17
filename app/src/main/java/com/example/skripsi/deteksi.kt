@@ -164,16 +164,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         text.setText(intent.extras?.get("KEY_NAME").toString())
         val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         tts = TextToSpeech(this, this)
-
-        if (allPermissionsGranted()) {
-            Timer().schedule(10000) {
-                startCamera()
-            }
-
-        } else {
-            ActivityCompat.requestPermissions(
-                this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
-        }
+        startCamera()
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
@@ -184,25 +175,6 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
             startCamera()
         }
 
-    }
-
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int, permissions: Array<String>, grantResults:
-        IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                startCamera()
-            } else {
-                Toast.makeText(this,
-                    "Permissions not granted by the user.",
-                    Toast.LENGTH_SHORT).show()
-                finish()
-                ActivityCompat.requestPermissions(
-                    this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
-            }
-        }
     }
 
     fun getAngle(firstPoint: PoseLandmark, midPoint: PoseLandmark, lastPoint: PoseLandmark): Double {
@@ -223,7 +195,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun onTextFound(pose: Pose)  {
         val namaPose = intent.extras?.get("KEY_NAME")
         val arahPose = intent.extras?.get("arah")
-        Log.d("menerimadata",arahPose.toString())
+
         val headLine = Paint()
         headLine.color=Color.GREEN
         headLine.isAntiAlias = true
@@ -784,7 +756,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         this, cameraSelector, preview, imageCapture, imageAnalyzer)
 
                 } catch(exc: Exception) {
-                    Log.e(TAG, "Use case binding failed", exc)
+                    Log.e("cameraxre", "Use case binding failed", exc)
                 }
             }else{
                 rect_overlay.scaleX=-1f
@@ -814,15 +786,10 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         this, cameraSelector, preview, imageCapture, imageAnalyzer)
 
                 } catch(exc: Exception) {
-                    Log.e(TAG, "Use case binding failed", exc)
+                    Log.e("cameraxre", "Use case binding failed", exc)
                 }
             }
         }, ContextCompat.getMainExecutor(this))
-    }
-
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(
-            baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onDestroy() {
@@ -831,11 +798,6 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts!!.shutdown()
     }
 
-    companion object {
-        private const val TAG = "CameraXBasic"
-        private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-    }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
