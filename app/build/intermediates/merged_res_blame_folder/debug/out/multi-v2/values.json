@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.skripsi.app-mergeDebugResources-38:/values/values.xml",
+            "outputFile": "com.example.skripsi.app-mergeDebugResources-35:/values/values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nicho\\.gradle\\caches\\transforms-3\\602071a6143264f9e6f1e3e8613bdfdc\\transformed\\recyclerview-1.1.0\\res\\values\\values.xml",

@@ -100,6 +100,9 @@
             android:name="com.google.mlkit.acceleration.internal.MlKitRemoteWorkerService"
             android:exported="false"
             android:process=":mlkit_acceleration_mini_benchmark" />
+        <service
+            android:name="androidx.work.multiprocess.RemoteWorkManagerService"
+            android:exported="false" />
 
         <provider
             android:name="com.google.mlkit.common.internal.MlKitInitProvider"
@@ -128,19 +131,16 @@
                 android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
                 android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
         </service>
-        <service
-            android:name="androidx.work.multiprocess.RemoteWorkManagerService"
-            android:exported="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.example.skripsi.androidx-startup"
             android:exported="false" >
             <meta-data
-                android:name="androidx.work.WorkManagerInitializer"
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
                 android:value="androidx.startup" />
             <meta-data
-                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:name="androidx.work.WorkManagerInitializer"
                 android:value="androidx.startup" />
         </provider>
 

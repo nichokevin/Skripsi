@@ -40,8 +40,6 @@ private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : Imag
 
     private val poseDetector = PoseDetection.getClient(options)
 
-
-
     @SuppressLint("UnsafeExperimentalUsageError", "UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy) {
         val mediaImage = imageProxy.image

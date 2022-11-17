@@ -183,83 +183,83 @@
 101-->[com.google.mlkit:acceleration:16.0.0-beta1] C:\Users\nicho\.gradle\caches\transforms-3\5928ed0792543e8b1344d3d20b0b8a15\transformed\jetified-acceleration-16.0.0-beta1\AndroidManifest.xml:10:13-37
 102            android:process=":mlkit_acceleration_mini_benchmark" />
 102-->[com.google.mlkit:acceleration:16.0.0-beta1] C:\Users\nicho\.gradle\caches\transforms-3\5928ed0792543e8b1344d3d20b0b8a15\transformed\jetified-acceleration-16.0.0-beta1\AndroidManifest.xml:11:13-65
-103
-104        <provider
-104-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:9:9-13:38
-105            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
-105-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:10:13-78
-106            android:authorities="com.example.skripsi.mlkitinitprovider"
-106-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:11:13-69
-107            android:exported="false"
-107-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:12:13-37
-108            android:initOrder="99" />
-108-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:13:13-35
-109
-110        <activity
-110-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
-111            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-111-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
-112            android:exported="false"
-112-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
-113            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-113-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
-114
-115        <meta-data
-115-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
-116            android:name="com.google.android.gms.version"
-116-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
-117            android:value="@integer/google_play_services_version" />
-117-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
-118
-119        <uses-library
-119-->[androidx.camera:camera-extensions:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\AndroidManifest.xml:31:9-33:40
-120            android:name="androidx.camera.extensions.impl"
-120-->[androidx.camera:camera-extensions:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\AndroidManifest.xml:32:13-59
-121            android:required="false" />
-121-->[androidx.camera:camera-extensions:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\AndroidManifest.xml:33:13-37
-122
-123        <service
-123-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:26:9-35:19
-124            android:name="androidx.camera.core.impl.MetadataHolderService"
-124-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:27:13-75
-125            android:enabled="false"
-125-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:28:13-36
-126            android:exported="false" >
-126-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:29:13-37
-127            <meta-data
-127-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:32:13-34:89
-128                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-128-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:33:17-103
-129                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-129-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:34:17-86
-130        </service>
-131        <service
-131-->[androidx.work:work-multiprocess:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\AndroidManifest.xml:25:9-27:40
-132            android:name="androidx.work.multiprocess.RemoteWorkManagerService"
-132-->[androidx.work:work-multiprocess:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\AndroidManifest.xml:26:13-79
-133            android:exported="false" />
-133-->[androidx.work:work-multiprocess:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\AndroidManifest.xml:27:13-37
+103        <service
+103-->[androidx.work:work-multiprocess:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\AndroidManifest.xml:25:9-27:40
+104            android:name="androidx.work.multiprocess.RemoteWorkManagerService"
+104-->[androidx.work:work-multiprocess:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\AndroidManifest.xml:26:13-79
+105            android:exported="false" />
+105-->[androidx.work:work-multiprocess:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\AndroidManifest.xml:27:13-37
+106
+107        <provider
+107-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:9:9-13:38
+108            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+108-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:10:13-78
+109            android:authorities="com.example.skripsi.mlkitinitprovider"
+109-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:11:13-69
+110            android:exported="false"
+110-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:12:13-37
+111            android:initOrder="99" />
+111-->[com.google.mlkit:common:18.5.0] C:\Users\nicho\.gradle\caches\transforms-3\41d61a1d4148e8d9b4b3cce90478cc1c\transformed\jetified-common-18.5.0\AndroidManifest.xml:13:13-35
+112
+113        <activity
+113-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+114            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+114-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+115            android:exported="false"
+115-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+116            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+116-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+117
+118        <meta-data
+118-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+119            android:name="com.google.android.gms.version"
+119-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+120            android:value="@integer/google_play_services_version" />
+120-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\nicho\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+121
+122        <uses-library
+122-->[androidx.camera:camera-extensions:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\AndroidManifest.xml:31:9-33:40
+123            android:name="androidx.camera.extensions.impl"
+123-->[androidx.camera:camera-extensions:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\AndroidManifest.xml:32:13-59
+124            android:required="false" />
+124-->[androidx.camera:camera-extensions:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\AndroidManifest.xml:33:13-37
+125
+126        <service
+126-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:26:9-35:19
+127            android:name="androidx.camera.core.impl.MetadataHolderService"
+127-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:27:13-75
+128            android:enabled="false"
+128-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:28:13-36
+129            android:exported="false" >
+129-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:29:13-37
+130            <meta-data
+130-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:32:13-34:89
+131                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+131-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:33:17-103
+132                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+132-->[androidx.camera:camera-camera2:1.1.0-beta01] C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\AndroidManifest.xml:34:17-86
+133        </service>
 134
 135        <provider
-135-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:31:9-39:20
+135-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:24:9-32:20
 136            android:name="androidx.startup.InitializationProvider"
-136-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:32:13-67
+136-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:25:13-67
 137            android:authorities="com.example.skripsi.androidx-startup"
-137-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:33:13-68
+137-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:26:13-68
 138            android:exported="false" >
-138-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:34:13-37
+138-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:27:13-37
 139            <meta-data
-139-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:36:13-38:52
-140                android:name="androidx.work.WorkManagerInitializer"
-140-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:37:17-68
+139-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:29:13-31:52
+140                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+140-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:30:17-78
 141                android:value="androidx.startup" />
-141-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:38:17-49
+141-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:31:17-49
 142            <meta-data
-142-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:29:13-31:52
-143                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-143-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:30:17-78
+142-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:36:13-38:52
+143                android:name="androidx.work.WorkManagerInitializer"
+143-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:37:17-68
 144                android:value="androidx.startup" />
-144-->[androidx.lifecycle:lifecycle-process:2.6.0-alpha03] C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\AndroidManifest.xml:31:17-49
+144-->[androidx.work:work-runtime:2.7.0] C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\AndroidManifest.xml:38:17-49
 145        </provider>
 146
 147        <service
