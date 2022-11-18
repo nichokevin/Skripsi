@@ -2,8 +2,6 @@ package com.example.skripsi.databaseLokal
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
-import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -82,32 +80,6 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         db.close()
     }
 
-    // below method is to get
-    // all data from our database
-    fun getAll(): Cursor? {
-
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
-        val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
-        val temp= db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
-        if (temp.moveToFirst()) {
-            do {
-                val test =temp.getColumnIndex(DBHelper.NAME_COl)
-                val t = temp.getColumnIndex(DBHelper.DES_COL)
-                Log.d("getAll Nama", temp.getString(test))
-                Log.d("getAll des", temp.getString(t))
-
-            } while (temp.moveToNext());
-        }
-        temp.close();
-        return null
-
-    }
-
     fun getByName(data: String): Array<String>? {
 
         // here we are creating a readable
@@ -119,11 +91,11 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         db.rawQuery(tempQuery, arrayOf(data)).use {
             if (it.moveToFirst()) {
                 do {
-                    val test =it.getColumnIndex(DBHelper.NAME_COl)
-                    val t = it.getColumnIndex(DBHelper.DES_COL)
+                    val test =it.getColumnIndex(NAME_COl)
+                    val t = it.getColumnIndex(DES_COL)
                     val temp = arrayOf(it.getString(test),it.getString(t))
                     return temp
-                } while (it.moveToNext());
+                } while (it.moveToNext())
             }
         }
         return null

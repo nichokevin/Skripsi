@@ -100,12 +100,13 @@ class MainActivity : AppCompatActivity() {
                     "terhindar dari cedera.\n" +
                     "    Gerakan plank hampir mirip dengan push-up tetapi menggunakan lengan bawah sebagai tumpuan. " +
                     "Latihan ini sangat efektif untuk memperkuat seluruh otot tubuh, terutama otot-otot perut serta bagian inti tubuh."
-            val temp = db.getByName(name)
+            var temp = db.getByName(name)
             if (temp != null) {
                 db.replace(name,des)
+                temp=db.getByName(name)
                 val bundle = Bundle()
-                bundle.putString("nama",temp[0])
-                bundle.putString("des",temp[1])
+                bundle.putString("nama", temp!![0])
+                bundle.putString("des", temp[1])
                 Log.d("isi bundle", bundle.getString("nama").toString())
                 val intent = Intent(this, detail::class.java)
                 intent.putExtras(bundle)
@@ -132,12 +133,13 @@ class MainActivity : AppCompatActivity() {
                     "pergelangan kaki), otot inti (core), dan keseimbangan yang dilakukan dengan berdiri satu kaki. " +
                     "\n    Selain memperkuat kaki dan otot inti, pose ini juga akan melatih anggota tubuh lain seperti paha " +
                     "bagian dalam, dada, hingga bahu. Pose ini pun dapat membantu dalam meredakan linu di bagian pinggul."
-            val temp = db.getByName(name)
+            var temp = db.getByName(name)
             if (temp != null) {
                 db.replace(name,des)
+                temp=db.getByName(name)
                 val bundle = Bundle()
-                bundle.putString("nama",temp[0])
-                bundle.putString("des",temp[1])
+                bundle.putString("nama",temp!![0])
+                bundle.putString("des",temp!![1])
                 Log.d("isi bundle", bundle.getString("nama").toString())
                 val intent = Intent(this, detail::class.java)
                 intent.putExtras(bundle)
@@ -166,12 +168,13 @@ class MainActivity : AppCompatActivity() {
                     "dengan pose ini sangat membantu untuk melawan postur membungkuk dan bentuk tubuh yang membulat. Postur " +
                     "yang tidak baik ini dialami oleh banyak orang, khususnya para pekerja kantoran yang sebagian besar " +
                     "waktunya dihabiskan dengan duduk di depan komputer."
-            val temp = db.getByName(name)
+            var temp = db.getByName(name)
             if (temp != null) {
                 db.replace(name,des)
+                temp=db.getByName(name)
                 val bundle = Bundle()
-                bundle.putString("nama",temp[0])
-                bundle.putString("des",temp[1])
+                bundle.putString("nama",temp!![0])
+                bundle.putString("des",temp!![1])
                 Log.d("isi bundle", bundle.getString("nama").toString())
                 val intent = Intent(this, detail::class.java)
                 intent.putExtras(bundle)
