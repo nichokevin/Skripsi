@@ -11,13 +11,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.cardview.widget.CardView
-import androidx.core.app.ActivityCompat
 import com.example.skripsi.databaseLokal.DBHelper
 import kotlinx.android.synthetic.main.action_bar_layout.*
 
@@ -34,15 +32,15 @@ class MainActivity : AppCompatActivity() {
             else -> false
         }
     }
-    private val MY_CAMERA_REQUEST_CODE = 100;
+    private val MY_CAMERA_REQUEST_CODE = 100
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == MY_CAMERA_REQUEST_CODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -56,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setCustomView(R.layout.action_bar_layout)
 
         if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.CAMERA), MY_CAMERA_REQUEST_CODE);
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), MY_CAMERA_REQUEST_CODE)
         }
 
         btnHelp.setOnClickListener {
@@ -64,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
             alertDialog.apply {
                 setTitle("Petunjuk penggunaan aplikasi")
-                setMessage("Touch 1 kali -> halaman deteksi\n Long tap -> halaman detail")
+                setMessage("- Touch 1 kali -> halaman deteksi\n- Long tap -> halaman detail\n- Saat membuka halaman deteksi ada delay camera 10s untuk menjauh dari kamera setelah ditempatkan")
                 setPositiveButton("Ok") { _: DialogInterface?, _: Int ->
                 }
             }.create().show()

@@ -1,10 +1,8 @@
 package com.example.skripsi
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.*
 import android.os.Bundle
 import android.os.Handler
@@ -18,7 +16,6 @@ import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.pose.Pose
@@ -162,7 +159,10 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         text.setText(intent.extras?.get("KEY_NAME").toString())
         val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         tts = TextToSpeech(this, this)
-        startCamera()
+
+        Timer().schedule(10000) {
+            startCamera()
+        }
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
