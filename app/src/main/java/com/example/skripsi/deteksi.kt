@@ -5,8 +5,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.graphics.*
 import android.os.Bundle
-import android.os.Handler
 import android.speech.tts.TextToSpeech
+import android.speech.tts.TextToSpeech.QUEUE_ADD
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -26,7 +26,6 @@ import kotlinx.android.synthetic.main.activity_deteksi.*
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import kotlin.concurrent.schedule
 import kotlin.math.atan2
 
 private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : ImageAnalysis.Analyzer {
@@ -137,7 +136,6 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
 
 }
 
-@Suppress("DEPRECATION")
 class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var imageCapture: ImageCapture? = null
     private var tts: TextToSpeech? = null
@@ -150,19 +148,16 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var tKiri=true
     private var kKanan=true
     private var kKiri=true
-    private val handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deteksi)
         val text= findViewById<TextView>(R.id.txtName)
-        text.setText(intent.extras?.get("KEY_NAME").toString())
+        text.text = intent.extras?.get("KEY_NAME").toString()
         val cameraSwitch = findViewById<ToggleButton>(R.id.facing_switch)
         tts = TextToSpeech(this, this)
 
-        Timer().schedule(10000) {
-            startCamera()
-        }
+        startCamera()
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
@@ -325,7 +320,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutbkk", sudutBK.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kanan"){
-                        if(sudutBK in 167.0..180.0){
+                        if(sudutBK in 160.0..185.0){
                             Log.d("cekposebkk","benar")
                             rbodyLine.color=Color.GREEN
                             bKanan=true
@@ -339,7 +334,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         bKanan=true
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutBK in 171.0..177.0||sudutBK in 115.0..127.0){
+                    if(sudutBK in 165.0..180.0||sudutBK in 115.0..127.0){
                         Log.d("cekposebkk","benar")
                         rbodyLine.color=Color.GREEN
                         bKanan=true
@@ -372,7 +367,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutbkr", sudutBKR.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(sudutBKR in 167.0..180.0){
+                        if(sudutBKR in 160.0..185.0){
                             Log.d("cekposebkr","benar")
                             lbodyLine.color=Color.GREEN
                             bKiri=true
@@ -386,7 +381,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         bKiri=true
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutBKR in 115.0..127.0||sudutBKR in 171.0..177.0){
+                    if(sudutBKR in 115.0..127.0||sudutBKR in 165.0..180.0){
                         Log.d("cekposebkr","benar")
                         lbodyLine.color=Color.GREEN
                         bKiri=true
@@ -467,7 +462,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("suduttangankiri", sudutKiri.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(sudutKiri in 70.0..95.0){
+                        if(sudutKiri in 70.0..100.0){
                             Log.d("cekposetr","benar")
                             lhandLine.color=Color.GREEN
                             tKiri=true
@@ -514,7 +509,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutkakikanan", kakiKanan.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kanan"){
-                        if(kakiKanan in 95.0..120.0){
+                        if(kakiKanan in 80.0..120.0){
                             Log.d("cekposekk","benar")
                             rfootLine.color=Color.GREEN
                             kKanan=true
@@ -555,7 +550,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutkakikiri", kakiKiri.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(kakiKiri in 95.0..120.0){
+                        if(kakiKiri in 80.0..120.0){
                             Log.d("cekposekr","benar")
                             lfootLine.color=Color.GREEN
                             kKiri=true
@@ -592,25 +587,22 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             if(!tKanan || !tKiri){
                 val text = "incorrect arm position"
-                val delayMs = 2000
-                handler.postDelayed(
-                    { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
-                    delayMs.toLong()
-                )
+                tts!!.playSilentUtterance(1000,QUEUE_ADD,null)
+                tts!!.speak(text, QUEUE_ADD, null,"")
+                tts!!.playSilentUtterance(2000,QUEUE_ADD,null)
+
             }else if(!bKanan||!bKiri){
                 val text = "incorrect body position"
-                val delayMs = 2000
-                handler.postDelayed(
-                    { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
-                    delayMs.toLong()
-                )
+                tts!!.playSilentUtterance(1000,QUEUE_ADD,null)
+                tts!!.speak(text, QUEUE_ADD, null,"")
+                tts!!.playSilentUtterance(2000,QUEUE_ADD,null)
+
             }else if(!kKanan||!kKiri){
                 val text = "incorrect foot position"
-                val delayMs = 2000
-                handler.postDelayed(
-                    { tts!!.speak(text, TextToSpeech.QUEUE_ADD, null,"") },
-                    delayMs.toLong()
-                )
+                tts!!.playSilentUtterance(1000,QUEUE_ADD,null)
+                tts!!.speak(text, QUEUE_ADD, null,"")
+                tts!!.playSilentUtterance(2000,QUEUE_ADD,null)
+
             }else{
                 tts!!.stop()
             }
@@ -664,7 +656,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             if(leftHeel != null &&  leftFootIndex != null){
-                rect_overlay.drawLine(leftHeel, leftFootIndex,headLine)
+                rect_overlay.drawLine(leftHeel, leftFootIndex,lfootLine)
             }
 
             if(rightShoulder != null &&  rightElbow != null){
@@ -704,11 +696,11 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             if(rightAnkle != null &&  rightHeel != null){
-                rect_overlay.drawLine(rightAnkle, rightHeel,headLine)
+                rect_overlay.drawLine(rightAnkle, rightHeel,rfootLine)
             }
 
             if(rightHeel != null &&  rightFootIndex != null){
-                rect_overlay.drawLine(rightHeel, rightFootIndex,headLine)
+                rect_overlay.drawLine(rightHeel, rightFootIndex,rfootLine)
             }
 
 

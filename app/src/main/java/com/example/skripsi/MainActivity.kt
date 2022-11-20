@@ -62,7 +62,8 @@ class MainActivity : AppCompatActivity() {
 
             alertDialog.apply {
                 setTitle("Petunjuk penggunaan aplikasi")
-                setMessage("- Touch 1 kali -> halaman deteksi\n- Long tap -> halaman detail\n- Saat membuka halaman deteksi ada delay camera 10s untuk menjauh dari kamera setelah ditempatkan")
+                setMessage("- Touch 1 kali -> halaman deteksi\n- Long tap -> halaman detail" +
+                        "\n- Plank & Cobra : pilih badan yang paling terlihat oleh kamera")
                 setPositiveButton("Ok") { _: DialogInterface?, _: Int ->
                 }
             }.create().show()
