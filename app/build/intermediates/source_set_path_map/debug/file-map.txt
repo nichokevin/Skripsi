@@ -1,40 +1,40 @@
-com.example.skripsi.app-work-runtime-2.7.0-0 C:\Users\Kevin\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\res
-com.example.skripsi.app-jetified-lifecycle-process-2.6.0-alpha03-1 C:\Users\Kevin\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\res
-com.example.skripsi.app-lifecycle-runtime-2.6.0-alpha03-2 C:\Users\Kevin\.gradle\caches\transforms-3\0cff04bfe4eb787ef720b7c7ab6ef4d7\transformed\lifecycle-runtime-2.6.0-alpha03\res
-com.example.skripsi.app-cardview-1.0.0-3 C:\Users\Kevin\.gradle\caches\transforms-3\19584def5cd3bd11dbdb2b0b7d449af5\transformed\cardview-1.0.0\res
-com.example.skripsi.app-jetified-play-services-base-18.1.0-4 C:\Users\Kevin\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\res
-com.example.skripsi.app-jetified-work-multiprocess-2.7.0-5 C:\Users\Kevin\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\res
-com.example.skripsi.app-fragment-1.3.4-6 C:\Users\Kevin\.gradle\caches\transforms-3\3177c0cd745b12f69fa6d0a7f5bfb039\transformed\fragment-1.3.4\res
-com.example.skripsi.app-lifecycle-livedata-2.6.0-alpha03-7 C:\Users\Kevin\.gradle\caches\transforms-3\3945882807728dae8878cf16c741b298\transformed\lifecycle-livedata-2.6.0-alpha03\res
-com.example.skripsi.app-jetified-camera-video-1.1.0-beta01-8 C:\Users\Kevin\.gradle\caches\transforms-3\50602c78723a99d475520a0abe4ce9f0\transformed\jetified-camera-video-1.1.0-beta01\res
-com.example.skripsi.app-work-runtime-ktx-2.7.0-9 C:\Users\Kevin\.gradle\caches\transforms-3\52ca1e450a0d8f0e5e37c2adbdf37c8d\transformed\work-runtime-ktx-2.7.0\res
-com.example.skripsi.app-recyclerview-1.1.0-10 C:\Users\Kevin\.gradle\caches\transforms-3\602071a6143264f9e6f1e3e8613bdfdc\transformed\recyclerview-1.1.0\res
-com.example.skripsi.app-jetified-camera-view-1.1.0-beta01-11 C:\Users\Kevin\.gradle\caches\transforms-3\6193e8ada9cc4208bc8124458218f3c4\transformed\jetified-camera-view-1.1.0-beta01\res
-com.example.skripsi.app-jetified-camera-camera2-1.1.0-beta01-12 C:\Users\Kevin\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\res
-com.example.skripsi.app-jetified-core-ktx-1.7.0-13 C:\Users\Kevin\.gradle\caches\transforms-3\6a03c20e5b9427fbb411100bc9e04d55\transformed\jetified-core-ktx-1.7.0\res
-com.example.skripsi.app-constraintlayout-2.0.4-14 C:\Users\Kevin\.gradle\caches\transforms-3\6b86088a49c79524b61b264c6914d59e\transformed\constraintlayout-2.0.4\res
-com.example.skripsi.app-jetified-savedstate-1.2.0-15 C:\Users\Kevin\.gradle\caches\transforms-3\6bb5b3bd7dadca665638d7df19f07fc4\transformed\jetified-savedstate-1.2.0\res
-com.example.skripsi.app-jetified-play-services-basement-18.1.0-16 C:\Users\Kevin\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\res
-com.example.skripsi.app-material-1.4.0-17 C:\Users\Kevin\.gradle\caches\transforms-3\7baf4b3010b0c69b4075dac2330b7a9d\transformed\material-1.4.0\res
-com.example.skripsi.app-jetified-camera-lifecycle-1.1.0-beta01-18 C:\Users\Kevin\.gradle\caches\transforms-3\7e1e86de506005f72829a98810bf9c26\transformed\jetified-camera-lifecycle-1.1.0-beta01\res
-com.example.skripsi.app-jetified-startup-runtime-1.1.1-19 C:\Users\Kevin\.gradle\caches\transforms-3\9abee10a29857bb2b484f9bff718d4b3\transformed\jetified-startup-runtime-1.1.1\res
-com.example.skripsi.app-core-1.7.0-20 C:\Users\Kevin\.gradle\caches\transforms-3\a64687b60d26b28eae52eb6f2dff46b8\transformed\core-1.7.0\res
-com.example.skripsi.app-coordinatorlayout-1.1.0-21 C:\Users\Kevin\.gradle\caches\transforms-3\b5ccbe2a6bfe5dad48b5cb554b7ea338\transformed\coordinatorlayout-1.1.0\res
-com.example.skripsi.app-transition-1.2.0-22 C:\Users\Kevin\.gradle\caches\transforms-3\c8c82aafdad19e9b4414caa7dd3aa54d\transformed\transition-1.2.0\res
-com.example.skripsi.app-jetified-camera-core-1.1.0-beta01-23 C:\Users\Kevin\.gradle\caches\transforms-3\cb6b05f6e77ac845e191bb944cd998e5\transformed\jetified-camera-core-1.1.0-beta01\res
-com.example.skripsi.app-appcompat-1.3.0-24 C:\Users\Kevin\.gradle\caches\transforms-3\ccdc8c954c225971fb1ba682628455ca\transformed\appcompat-1.3.0\res
-com.example.skripsi.app-jetified-camera-extensions-1.1.0-beta01-25 C:\Users\Kevin\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\res
-com.example.skripsi.app-lifecycle-viewmodel-2.6.0-alpha03-26 C:\Users\Kevin\.gradle\caches\transforms-3\deab76c9caebc87910658524731c6e05\transformed\lifecycle-viewmodel-2.6.0-alpha03\res
-com.example.skripsi.app-jetified-lifecycle-viewmodel-savedstate-2.6.0-alpha03-27 C:\Users\Kevin\.gradle\caches\transforms-3\ec7f50f2c61e847ba060ac9b97be1401\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.0-alpha03\res
-com.example.skripsi.app-jetified-annotation-experimental-1.1.0-28 C:\Users\Kevin\.gradle\caches\transforms-3\ee181849826c8e9f21503a4d28b23b38\transformed\jetified-annotation-experimental-1.1.0\res
-com.example.skripsi.app-lifecycle-livedata-core-2.6.0-alpha03-29 C:\Users\Kevin\.gradle\caches\transforms-3\f0e7e3a645bce4cbd09350dbf0854b09\transformed\lifecycle-livedata-core-2.6.0-alpha03\res
-com.example.skripsi.app-jetified-appcompat-resources-1.3.0-30 C:\Users\Kevin\.gradle\caches\transforms-3\fa4d4c2178d710c976ce1b718958f19c\transformed\jetified-appcompat-resources-1.3.0\res
-com.example.skripsi.app-jetified-viewpager2-1.0.0-31 C:\Users\Kevin\.gradle\caches\transforms-3\fb32d70f5434b6ab69292a97d72eae1d\transformed\jetified-viewpager2-1.0.0\res
-com.example.skripsi.app-pngs-32 D:\New folder (2)\Skripsi\Skripsi\app\build\generated\res\pngs\debug
-com.example.skripsi.app-resValues-33 D:\New folder (2)\Skripsi\Skripsi\app\build\generated\res\resValues\debug
-com.example.skripsi.app-rs-34 D:\New folder (2)\Skripsi\Skripsi\app\build\generated\res\rs\debug
-com.example.skripsi.app-packageDebugResources-35 D:\New folder (2)\Skripsi\Skripsi\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.skripsi.app-packageDebugResources-36 D:\New folder (2)\Skripsi\Skripsi\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.skripsi.app-merged_res-37 D:\New folder (2)\Skripsi\Skripsi\app\build\intermediates\merged_res\debug
-com.example.skripsi.app-debug-38 D:\New folder (2)\Skripsi\Skripsi\app\src\debug\res
-com.example.skripsi.app-main-39 D:\New folder (2)\Skripsi\Skripsi\app\src\main\res
+com.example.skripsi.app-work-runtime-2.7.0-0 C:\Users\nicho\.gradle\caches\transforms-3\00c789b23c50a2d229997d90915631d0\transformed\work-runtime-2.7.0\res
+com.example.skripsi.app-jetified-lifecycle-process-2.6.0-alpha03-1 C:\Users\nicho\.gradle\caches\transforms-3\0c1b4fc4ffa937205329bff8985d2a4f\transformed\jetified-lifecycle-process-2.6.0-alpha03\res
+com.example.skripsi.app-lifecycle-runtime-2.6.0-alpha03-2 C:\Users\nicho\.gradle\caches\transforms-3\0cff04bfe4eb787ef720b7c7ab6ef4d7\transformed\lifecycle-runtime-2.6.0-alpha03\res
+com.example.skripsi.app-cardview-1.0.0-3 C:\Users\nicho\.gradle\caches\transforms-3\19584def5cd3bd11dbdb2b0b7d449af5\transformed\cardview-1.0.0\res
+com.example.skripsi.app-jetified-play-services-base-18.1.0-4 C:\Users\nicho\.gradle\caches\transforms-3\1b9d82424556447479e62f5f6c892176\transformed\jetified-play-services-base-18.1.0\res
+com.example.skripsi.app-jetified-work-multiprocess-2.7.0-5 C:\Users\nicho\.gradle\caches\transforms-3\2bfed8ce3997f3263d17346b70d8bd1d\transformed\jetified-work-multiprocess-2.7.0\res
+com.example.skripsi.app-fragment-1.3.4-6 C:\Users\nicho\.gradle\caches\transforms-3\3177c0cd745b12f69fa6d0a7f5bfb039\transformed\fragment-1.3.4\res
+com.example.skripsi.app-lifecycle-livedata-2.6.0-alpha03-7 C:\Users\nicho\.gradle\caches\transforms-3\3945882807728dae8878cf16c741b298\transformed\lifecycle-livedata-2.6.0-alpha03\res
+com.example.skripsi.app-jetified-camera-video-1.1.0-beta01-8 C:\Users\nicho\.gradle\caches\transforms-3\50602c78723a99d475520a0abe4ce9f0\transformed\jetified-camera-video-1.1.0-beta01\res
+com.example.skripsi.app-work-runtime-ktx-2.7.0-9 C:\Users\nicho\.gradle\caches\transforms-3\52ca1e450a0d8f0e5e37c2adbdf37c8d\transformed\work-runtime-ktx-2.7.0\res
+com.example.skripsi.app-recyclerview-1.1.0-10 C:\Users\nicho\.gradle\caches\transforms-3\602071a6143264f9e6f1e3e8613bdfdc\transformed\recyclerview-1.1.0\res
+com.example.skripsi.app-jetified-camera-view-1.1.0-beta01-11 C:\Users\nicho\.gradle\caches\transforms-3\6193e8ada9cc4208bc8124458218f3c4\transformed\jetified-camera-view-1.1.0-beta01\res
+com.example.skripsi.app-jetified-camera-camera2-1.1.0-beta01-12 C:\Users\nicho\.gradle\caches\transforms-3\62c5d1424e6ba22c87ede777ecf3a91f\transformed\jetified-camera-camera2-1.1.0-beta01\res
+com.example.skripsi.app-jetified-core-ktx-1.7.0-13 C:\Users\nicho\.gradle\caches\transforms-3\6a03c20e5b9427fbb411100bc9e04d55\transformed\jetified-core-ktx-1.7.0\res
+com.example.skripsi.app-constraintlayout-2.0.4-14 C:\Users\nicho\.gradle\caches\transforms-3\6b86088a49c79524b61b264c6914d59e\transformed\constraintlayout-2.0.4\res
+com.example.skripsi.app-jetified-savedstate-1.2.0-15 C:\Users\nicho\.gradle\caches\transforms-3\6bb5b3bd7dadca665638d7df19f07fc4\transformed\jetified-savedstate-1.2.0\res
+com.example.skripsi.app-jetified-play-services-basement-18.1.0-16 C:\Users\nicho\.gradle\caches\transforms-3\76b84db463ed9538525c07731ad7dbfb\transformed\jetified-play-services-basement-18.1.0\res
+com.example.skripsi.app-material-1.4.0-17 C:\Users\nicho\.gradle\caches\transforms-3\7baf4b3010b0c69b4075dac2330b7a9d\transformed\material-1.4.0\res
+com.example.skripsi.app-jetified-camera-lifecycle-1.1.0-beta01-18 C:\Users\nicho\.gradle\caches\transforms-3\7e1e86de506005f72829a98810bf9c26\transformed\jetified-camera-lifecycle-1.1.0-beta01\res
+com.example.skripsi.app-jetified-startup-runtime-1.1.1-19 C:\Users\nicho\.gradle\caches\transforms-3\9abee10a29857bb2b484f9bff718d4b3\transformed\jetified-startup-runtime-1.1.1\res
+com.example.skripsi.app-core-1.7.0-20 C:\Users\nicho\.gradle\caches\transforms-3\a64687b60d26b28eae52eb6f2dff46b8\transformed\core-1.7.0\res
+com.example.skripsi.app-coordinatorlayout-1.1.0-21 C:\Users\nicho\.gradle\caches\transforms-3\b5ccbe2a6bfe5dad48b5cb554b7ea338\transformed\coordinatorlayout-1.1.0\res
+com.example.skripsi.app-transition-1.2.0-22 C:\Users\nicho\.gradle\caches\transforms-3\c8c82aafdad19e9b4414caa7dd3aa54d\transformed\transition-1.2.0\res
+com.example.skripsi.app-jetified-camera-core-1.1.0-beta01-23 C:\Users\nicho\.gradle\caches\transforms-3\cb6b05f6e77ac845e191bb944cd998e5\transformed\jetified-camera-core-1.1.0-beta01\res
+com.example.skripsi.app-appcompat-1.3.0-24 C:\Users\nicho\.gradle\caches\transforms-3\ccdc8c954c225971fb1ba682628455ca\transformed\appcompat-1.3.0\res
+com.example.skripsi.app-jetified-camera-extensions-1.1.0-beta01-25 C:\Users\nicho\.gradle\caches\transforms-3\d2aba22663bdd199bf853a1f2a3b31aa\transformed\jetified-camera-extensions-1.1.0-beta01\res
+com.example.skripsi.app-lifecycle-viewmodel-2.6.0-alpha03-26 C:\Users\nicho\.gradle\caches\transforms-3\deab76c9caebc87910658524731c6e05\transformed\lifecycle-viewmodel-2.6.0-alpha03\res
+com.example.skripsi.app-jetified-lifecycle-viewmodel-savedstate-2.6.0-alpha03-27 C:\Users\nicho\.gradle\caches\transforms-3\ec7f50f2c61e847ba060ac9b97be1401\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.0-alpha03\res
+com.example.skripsi.app-jetified-annotation-experimental-1.1.0-28 C:\Users\nicho\.gradle\caches\transforms-3\ee181849826c8e9f21503a4d28b23b38\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.skripsi.app-lifecycle-livedata-core-2.6.0-alpha03-29 C:\Users\nicho\.gradle\caches\transforms-3\f0e7e3a645bce4cbd09350dbf0854b09\transformed\lifecycle-livedata-core-2.6.0-alpha03\res
+com.example.skripsi.app-jetified-appcompat-resources-1.3.0-30 C:\Users\nicho\.gradle\caches\transforms-3\fa4d4c2178d710c976ce1b718958f19c\transformed\jetified-appcompat-resources-1.3.0\res
+com.example.skripsi.app-jetified-viewpager2-1.0.0-31 C:\Users\nicho\.gradle\caches\transforms-3\fb32d70f5434b6ab69292a97d72eae1d\transformed\jetified-viewpager2-1.0.0\res
+com.example.skripsi.app-pngs-32 D:\Kuliah\Skripsi\Skripsi\app\build\generated\res\pngs\debug
+com.example.skripsi.app-resValues-33 D:\Kuliah\Skripsi\Skripsi\app\build\generated\res\resValues\debug
+com.example.skripsi.app-rs-34 D:\Kuliah\Skripsi\Skripsi\app\build\generated\res\rs\debug
+com.example.skripsi.app-packageDebugResources-35 D:\Kuliah\Skripsi\Skripsi\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.skripsi.app-packageDebugResources-36 D:\Kuliah\Skripsi\Skripsi\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.skripsi.app-merged_res-37 D:\Kuliah\Skripsi\Skripsi\app\build\intermediates\merged_res\debug
+com.example.skripsi.app-debug-38 D:\Kuliah\Skripsi\Skripsi\app\src\debug\res
+com.example.skripsi.app-main-39 D:\Kuliah\Skripsi\Skripsi\app\src\main\res

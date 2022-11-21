@@ -136,6 +136,7 @@ class RectOverlay constructor(context: Context?, attributeSet: AttributeSet?) :
 
 }
 
+@Suppress("DEPRECATION")
 class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var imageCapture: ImageCapture? = null
     private var tts: TextToSpeech? = null
@@ -197,7 +198,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         headLine.style = Paint.Style.STROKE // default: FILL
         headLine.strokeJoin = Paint.Join.ROUND // default: MITER
         headLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        headLine.strokeWidth = 20f
+        headLine.strokeWidth = 30f
 
         val lhandLine = Paint()
         lhandLine.color=Color.GREEN
@@ -207,7 +208,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lhandLine.style = Paint.Style.STROKE // default: FILL
         lhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lhandLine.strokeWidth = 20f
+        lhandLine.strokeWidth = 30f
 
         val rhandLine = Paint()
         rhandLine.color=Color.GREEN
@@ -217,7 +218,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rhandLine.style = Paint.Style.STROKE // default: FILL
         rhandLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rhandLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rhandLine.strokeWidth = 20f
+        rhandLine.strokeWidth = 30f
 
         val lbodyLine = Paint()
         lbodyLine.color=Color.GREEN
@@ -227,7 +228,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lbodyLine.style = Paint.Style.STROKE // default: FILL
         lbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lbodyLine.strokeWidth = 20f
+        lbodyLine.strokeWidth = 30f
 
         val rbodyLine = Paint()
         rbodyLine.color=Color.GREEN
@@ -239,7 +240,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rbodyLine.style = Paint.Style.STROKE // default: FILL
         rbodyLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rbodyLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rbodyLine.strokeWidth = 20f
+        rbodyLine.strokeWidth = 30f
 
         val lfootLine = Paint()
         lfootLine.color=Color.GREEN
@@ -251,7 +252,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         lfootLine.style = Paint.Style.STROKE // default: FILL
         lfootLine.strokeJoin = Paint.Join.ROUND // default: MITER
         lfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        lfootLine.strokeWidth = 10f
+        lfootLine.strokeWidth = 30f
 
         val rfootLine = Paint()
         rfootLine.color=Color.GREEN
@@ -263,7 +264,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         rfootLine.style = Paint.Style.STROKE // default: FILL
         rfootLine.strokeJoin = Paint.Join.ROUND // default: MITER
         rfootLine.strokeCap = Paint.Cap.ROUND // default: BUTT
-        rfootLine.strokeWidth = 20f
+        rfootLine.strokeWidth = 30f
 
         try {
 
@@ -334,18 +335,31 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         bKanan=true
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutBK in 165.0..180.0||sudutBK in 115.0..127.0){
-                        Log.d("cekposebkk","benar")
-                        rbodyLine.color=Color.GREEN
-                        bKanan=true
-                    }else{
-                        Log.d("cekposebkk","salah")
-                        rbodyLine.color=Color.RED
-                        bKanan=false
+                    if(arahPose=="kanan"){
+                        if(sudutBK in 115.0..127.0){
+                            Log.d("cekposebkk","benar")
+                            rbodyLine.color=Color.GREEN
+                            bKanan=true
+                        }else{
+                            Log.d("cekposebkk","salah")
+                            rbodyLine.color=Color.RED
+                            bKanan=false
+                        }
+                    }else {
+                        if(sudutBK in 165.0..180.0){
+                            Log.d("cekposebkk","benar")
+                            rbodyLine.color=Color.GREEN
+                            bKanan=true
+                        }else{
+                            Log.d("cekposebkk","salah")
+                            rbodyLine.color=Color.RED
+                            bKanan=false
+                        }
                     }
+
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kanan"){
-                        if(sudutBK in 126.0..133.0){
+                        if(sudutBK in 124.0..150.0){
                             Log.d("cekposebkk","benar")
                             lbodyLine.color=Color.GREEN
                             bKiri=true
@@ -381,18 +395,31 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         bKiri=true
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutBKR in 115.0..127.0||sudutBKR in 165.0..180.0){
-                        Log.d("cekposebkr","benar")
-                        lbodyLine.color=Color.GREEN
-                        bKiri=true
+                    if(arahPose=="kanan"){
+                        if(sudutBKR in 165.0..180.0){
+                            Log.d("cekposebkr","benar")
+                            lbodyLine.color=Color.GREEN
+                            bKiri=true
+                        }else{
+                            Log.d("cekposebkr","salah")
+                            lbodyLine.color=Color.RED
+                            bKiri=false
+                        }
                     }else{
-                        Log.d("cekposebkr","salah")
-                        lbodyLine.color=Color.RED
-                        bKiri=false
+                        if(sudutBKR in 115.0..127.0){
+                            Log.d("cekposebkr","benar")
+                            lbodyLine.color=Color.GREEN
+                            bKiri=true
+                        }else{
+                            Log.d("cekposebkr","salah")
+                            lbodyLine.color=Color.RED
+                            bKiri=false
+                        }
                     }
+
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kiri"){
-                        if(sudutBKR in 124.0..133.0){
+                        if(sudutBKR in 124.0..150.0){
                             Log.d("cekposebkr","benar")
                             lbodyLine.color=Color.GREEN
                             bKiri=true
@@ -429,7 +456,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
 
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutKanan in 48.0..61.0){
+                    if(sudutKanan in 45.0..65.0){
                         Log.d("cekposetk","benar")
                         rhandLine.color=Color.GREEN
                         tKanan=true
@@ -440,7 +467,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kanan"){
-                        if(sudutKanan in 158.0..175.0){
+                        if(sudutKanan in 125.0..160.0){
                             Log.d("cekposetk","benar")
                             rhandLine.color=Color.GREEN
                             tKanan=true
@@ -476,7 +503,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                         tKiri=true
                     }
                 }else if(namaPose=="Pose Tree"){
-                    if(sudutKiri in 49.0..61.0){
+                    if(sudutKiri in 45.0..65.0){
                         Log.d("cekposetr","benar")
                         lhandLine.color=Color.GREEN
                         tKiri=true
@@ -487,7 +514,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
                 }else if(namaPose=="Pose Cobra"){
                     if(arahPose=="kiri"){
-                        if(sudutKiri in 158.0..175.0){
+                        if(sudutKiri in 125.0..160.0){
                             Log.d("cekposetr","benar")
                             lhandLine.color=Color.GREEN
                             tKiri=true
@@ -509,7 +536,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutkakikanan", kakiKanan.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kanan"){
-                        if(kakiKanan in 80.0..120.0){
+                        if(kakiKanan in 70.0..135.0){
                             Log.d("cekposekk","benar")
                             rfootLine.color=Color.GREEN
                             kKanan=true
@@ -550,7 +577,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutkakikiri", kakiKiri.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(kakiKiri in 80.0..120.0){
+                        if(kakiKiri in 70.0..135.0){
                             Log.d("cekposekr","benar")
                             lfootLine.color=Color.GREEN
                             kKiri=true

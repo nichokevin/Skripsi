@@ -63,7 +63,8 @@ class MainActivity : AppCompatActivity() {
             alertDialog.apply {
                 setTitle("Petunjuk penggunaan aplikasi")
                 setMessage("- Touch 1 kali -> halaman deteksi\n- Long tap -> halaman detail" +
-                        "\n- Plank & Cobra : pilih badan yang paling terlihat oleh kamera")
+                        "\n- Plank & Cobra : pilih badan yang paling terlihat oleh kamera"+
+                        "\n- Tree : Pilih kaki yang diangkat\n- Sistem mengkoreksi pose dengan suara dan warna garis")
                 setPositiveButton("Ok") { _: DialogInterface?, _: Int ->
                 }
             }.create().show()
@@ -217,15 +218,30 @@ class MainActivity : AppCompatActivity() {
 
         }
         card2.setOnClickListener{
-            val i = Intent(this@MainActivity, deteksi::class.java)
-            i.putExtra("KEY_NAME",NamaPose2)
-            startActivity(i)
+            val alertDialog = AlertDialog.Builder(this)
+
+            alertDialog.apply {
+                setTitle("Tree (left/right)")
+                setPositiveButton("Kiri") { _: DialogInterface?, _: Int ->
+                    val i = Intent(this@MainActivity, deteksi::class.java)
+                    i.putExtra("KEY_NAME",NamaPose2)
+                    i.putExtra("arah","kiri")
+                    startActivity(i)
+                }
+                setNegativeButton("Kanan") { _, _ ->
+                    val i = Intent(this@MainActivity, deteksi::class.java)
+                    i.putExtra("KEY_NAME",NamaPose2)
+                    i.putExtra("arah","kanan")
+                    startActivity(i)
+                }
+            }.create().show()
+
         }
         card3.setOnClickListener{
             val alertDialog = AlertDialog.Builder(this)
 
             alertDialog.apply {
-                setTitle("Plank (left/right)")
+                setTitle("Cobra (left/right)")
                 setPositiveButton("Kiri") { _: DialogInterface?, _: Int ->
                     val i = Intent(this@MainActivity, deteksi::class.java)
                     i.putExtra("KEY_NAME",NamaPose3)
