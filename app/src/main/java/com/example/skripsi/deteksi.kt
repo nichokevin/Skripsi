@@ -42,8 +42,6 @@ private class PoseAnalyzer(private val poseFoundListener: (Pose) -> Unit) : Imag
         if (mediaImage != null) {
             val image = InputImage.fromMediaImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
 
-            // Accurate pose detector on static images, when depending on the pose-detection-accurate sdk
-
             poseDetector
                 .process(image)
                 .addOnSuccessListener { pose ->
@@ -186,7 +184,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
         return result
     }
 
-    private fun onTextFound(pose: Pose)  {
+    private fun onPoseFound(pose: Pose)  {
         val namaPose = intent.extras?.get("KEY_NAME")
         val arahPose = intent.extras?.get("arah")
 
@@ -321,7 +319,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutbkk", sudutBK.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kanan"){
-                        if(sudutBK in 160.0..185.0){
+                        if(sudutBK in 175.0..185.0){
                             Log.d("cekposebkk","benar")
                             rbodyLine.color=Color.GREEN
                             bKanan=true
@@ -381,7 +379,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 Log.d("sudutbkr", sudutBKR.toInt().toString())
                 if (namaPose=="Pose Plank"){
                     if(arahPose=="kiri"){
-                        if(sudutBKR in 160.0..185.0){
+                        if(sudutBKR in 175.0..185.0){
                             Log.d("cekposebkr","benar")
                             lbodyLine.color=Color.GREEN
                             bKiri=true
@@ -396,7 +394,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
                 }else if(namaPose=="Pose Tree"){
                     if(arahPose=="kanan"){
-                        if(sudutBKR in 165.0..180.0){
+                        if(sudutBKR in 170.0..180.0){
                             Log.d("cekposebkr","benar")
                             lbodyLine.color=Color.GREEN
                             bKiri=true
@@ -755,7 +753,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 val imageAnalyzer = ImageAnalysis.Builder()
                     .build()
                     .also {
-                        it.setAnalyzer(cameraExecutor,PoseAnalyzer(::onTextFound))
+                        it.setAnalyzer(cameraExecutor,PoseAnalyzer(::onPoseFound))
                     }
 
                 imageCapture = ImageCapture.Builder()
@@ -786,7 +784,7 @@ class deteksi : AppCompatActivity(), TextToSpeech.OnInitListener {
                 val imageAnalyzer = ImageAnalysis.Builder()
                     .build()
                     .also {
-                        it.setAnalyzer(cameraExecutor,PoseAnalyzer(::onTextFound))
+                        it.setAnalyzer(cameraExecutor,PoseAnalyzer(::onPoseFound))
                     }
 
                 imageCapture = ImageCapture.Builder()
